@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :task
+  has_one :family, optionals: true
   has_one_attached :photo
 end
