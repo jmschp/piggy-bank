@@ -1,5 +1,10 @@
 {
     "cSpell.words": [
-        "cloudinary"
+        "authenticatable",
+        "cloudinary",
+        "invitable",
+        "omniauthable",
+        "timeoutable",
+        "validatable"
     ]
 }
