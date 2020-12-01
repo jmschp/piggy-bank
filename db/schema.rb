@@ -63,9 +63,9 @@ ActiveRecord::Schema.define(version: 2020_12_01_180850) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", null: false
-    t.boolean "admin", null: false
+    t.boolean "admin", default: false, null: false
     t.integer "points", default: 0, null: false
-    t.bigint "family_id", null: false
+    t.bigint "family_id"
     t.string "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"

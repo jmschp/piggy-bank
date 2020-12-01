@@ -10,5 +10,11 @@ class ApplicationController < ActionController::Base
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+
+    # For additional in app/views/devise/invitations/edit.html.erb
+    devise_parameter_sanitizer.permit(:invite, keys: [:name])
+
+    # For additional in app/views/devise/invitations/edit.html.erb
+    devise_parameter_sanitizer.permit(:accept_invitation, keys: [:name])
   end
 end

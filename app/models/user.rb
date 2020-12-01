@@ -6,5 +6,8 @@ class User < ApplicationRecord
 
   has_many :task
   belongs_to :family, optional: true
+
   has_one_attached :photo
+
+  
 end
