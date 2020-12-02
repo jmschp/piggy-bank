@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :task
+  has_many :tasks
   belongs_to :family, optional: true
 
   has_one_attached :photo
