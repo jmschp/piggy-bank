@@ -1,7 +1,21 @@
 <div class="container">
-  <ul>
-    <% @user_family.each do |user| %>
-      <li> <%= user.name %> </li>
-    <% end %>
-  </ul>
-</div>
+  <div class="row">
+    <div class="col col-md-4 mt-5 border">
+      <% if @user.photo.present? %>
+        <%= cl_image_tag(@user.photo.key, class: "avatar-large", alt: "avatar-large") %>
+      <% else %>
+        <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
+      <% end %>
+      <div>
+      <h2><%= @user.name %></h2>
+      <p>acompanhe as tarefas e conquistas de <%= @user_family.count %> kiddos ! </p>
+      </div>
+      <%= link_to(new_user_invitation_path) do %>
+        <%= image_tag("add-kid.svg") %>
+      <% end %>
+    </div>
+
+    <div class="col col-md-8 mt-5 border">
+    
+    </div>
+  </div>

@@ -1,0 +1,46 @@
+.card-filho {
+  width: 500px;
+  height: 200px;
+  background-color: $white;
+  padding: 20px;
+  border: 5px solid $yellow;
+  border-radius: 10px;
+}
+
+
+.card-filho-icons {
+  display: flex;
+  justify-content: space-around;
+  p {
+    color: $purple;
+  }
+}
+
+.card-filho-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-filho-tasks-icon {
+  color: $blue;
+  font-size: 50px;
+}
+.card-filho-calendar-icon {
+  color: $purple;
+  font-size: 50px;
+}
+
+.card-filho-medal-icon {
+  color: $yellow;
+  font-size: 50px;
+}
+.card-filho-balance-icon {
+  color: $green;
+  font-size: 50px;
+}
+
+.card-filho-target-icon {
+  color: $red;
+  font-size: 50px;
+}
