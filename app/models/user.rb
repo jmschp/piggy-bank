@@ -8,4 +8,6 @@ class User < ApplicationRecord
   belongs_to :family, optional: true
 
   has_one_attached :photo
+
+  accepts_nested_attributes_for :family
 end
