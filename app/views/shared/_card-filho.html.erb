@@ -1,20 +1,20 @@
-<div class="card-filho">
+<div class="card-filho m-1">
   <div class="card-filho-icons">
     <div class="card-filho-info">
-      <% if @user.photo.present? %>
-        <%= cl_image_tag(@user.photo.key, class: "avatar-large", alt: "avatar-large") %>
+      <% if family_member.photo.present? %>
+        <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
       <% else %>
         <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
       <% end %>
-      <p><%= @user.name %></p>
+      <p><%= family_member.name %></p>
     </div>
     <div class="card-filho-info">
       <i class="fas fa-tasks card-filho-tasks-icon"></i>
-      <p>6 tarefas</p>
+      <p> <%= family_member.tasks.count %> tarefas</p>
     </div>
     <div class="card-filho-info">
       <i class="far fa-calendar-alt card-filho-calendar-icon"></i>
-      <p>6 prazos</p>
+      <p><%= family_member.tasks.where.not(deadline: nil).count %> </p>
     </div>
   </div>
   <div class="card-filho-icons mt-1">

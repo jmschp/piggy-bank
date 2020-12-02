@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col col-md-4 mt-5 border">
+    <div class="col col-md-3 mt-5 border">
       <% if @user.photo.present? %>
         <%= cl_image_tag(@user.photo.key, class: "avatar-large", alt: "avatar-large") %>
       <% else %>
@@ -15,7 +15,10 @@
       <% end %>
     </div>
 
-    <div class="col col-md-8 mt-5 border">
-    
+    <div class="col col-md-9 d-flex flex-wrap justify-content-between align-content-around mt-5 border">
+
+      <% @user_family.each do |family_member| %>
+        <%= render('shared/card-filho', family_member: family_member) %>
+      <% end %>
     </div>
   </div>
