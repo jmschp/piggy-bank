@@ -1,20 +1,50 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<div class="container d-flex">
+  <div class="col-12 col-md-6 d-none d-md-block" style="background:rgba(90,194,201,0.8);">
+    <%= render "shared/logintxt" %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+  <div class= "col-12 col-md-6 yellow-container py-5 px-5" style="background-color: rgba(250,209,72,0.8);">
 
-<%= render "devise/shared/links" %>
+    <div class= "p-4 my-5 mx-4" style= "background: white; border-radius:10px; border:4px solid; border-color: #5AC2C9;">
+
+      <div class="container row justify-content-between py-3 px-0 m-0">
+        <div>
+        <h3>
+        <%= link_to "login", new_session_path(resource_name), style: 'text-decoration: none;' %><br/>
+        </h3>
+        </div>
+        <div>
+        <h3>
+        <%= link_to "sign up", new_registration_path(resource_name), style: 'color:#CCCCCC; text-decoration: none;' %><br/>
+        </h3>
+        </div>
+      </div>
+
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email,label:"email",
+                    placeholder: "helloyou@piggybank.com",
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password,label:"senha",
+                    placeholder: "••••••",
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+        <div class="container row justify-content-between px-0 m-0">
+          <div>
+            <%= f.input :remember_me, label:"lembre-se de mim", as: :boolean if devise_mapping.rememberable? %>
+          </div>
+          <div>
+            <%= link_to "esqueceu a sua senha?", new_password_path(resource_name), style: 'text-decoration: none;' %><br />
+          </div>
+        </div>
+        <div class="form-actions d-flex justify-content-center">
+          <%= f.button :submit, "go!", class: 'btn-go' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
