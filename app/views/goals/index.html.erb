@@ -10,35 +10,30 @@
             <% else %>
               <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
             <% end %>
-            <p><%= family_member.name %> <br> <%= family_member.points %></p>
+            <p><%= family_member.name %> <br>
+              <%= family_member.points %></p>
           <% end %>
         <% end %>
       </div>
     </div>
-
     <div class="col-12 col-md-9 d-flex flex-column justify-content-around border">
-      <div>
-        <p><i class="fas fa-bullseye target-icon"></i> metas em andamento</p>
-      </div>
-
       <% if @selected_son.present? %>
-
-          <div class="card-goals">
-            <% @family_goals.each do |goal| %>
-              <p> <%= goal.title %> - Pontos necessários: <%= goal.points %></p>
-            <% end %>
+        <div>
+          <p><i class="fas fa-bullseye target-icon"></i> metas em andamento</p>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: <%= ((@son_goals.user.points.to_f / @son_goals.points.to_f) * 100).to_i %>%" aria-valuenow="<%= ((@son_goals.user.points.to_f / @son_goals.points.to_f) * 100).to_i %>" aria-valuemin="0" aria-valuemax="100">
+            <%= @son_goals.title %>
           </div>
-
-          <div>
-            <p><i class="fas fa-bullseye target-icon"></i> metas concluídas</p>
+        </div>
+        <div>
+          <p><i class="fas fa-bullseye target-icon"></i> metas concluídas</p>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+            <%= @son_goals_finished.title %>
           </div>
-
-          <div class="card-goals">
-            <% @family_goals_finished.each do |goal| %>
-              <p>Meta: <%= goal.title %> Pontos necessários: <%= goal.points %></p>
-            <% end %>
-          </div> 
-
+        </div>
       <% end %>
     </div>
   </div>

@@ -6,8 +6,8 @@ class GoalsController < ApplicationController
 
     if @selected_son.present?
       @son = User.find(@selected_son)
-      @family_goals = Goal.where(user_id: @selected_son, finished: true)
-      @family_goals_finished = Goal.where(user_id: @selected_son, finished: false)
+      @son_goals = Goal.find_by(user_id: @selected_son, finished: true)
+      @son_goals_finished = Goal.find_by(user_id: @selected_son, finished: false)
     end
   end
 
