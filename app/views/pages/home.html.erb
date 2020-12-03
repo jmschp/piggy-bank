@@ -1,27 +1,43 @@
-<div class='container' style='background-color: rgba(90,194,201,0.8);'>
-  <h1>Piggy Bank</h1>
-  <h3>Acompanhe seu Kiddo nas suas tarefas e conquistas</h3>
+<div class='container d-flex flex-column justify-content-center' style='background-color: rgba(90,194,201,0.8);'>
+  <h1 class='title mt-3'>Piggy Bank</h1>
+  <h3 class='sub-title mt-3'>Acompanhe seu Kiddo nas suas tarefas e conquistas</h3>
 
-<div class='container-bttns'>
- <h6>Tarefas</h6>
-  <%= image_tag 'button-task.svg' %>
+  <div class='container-bttns d-flex justify-content-around'>
+    <div class='centralize'>
+      <p class='text-parag'>Tarefas</p>
+      <%= image_tag 'button-task.svg' %>
+    </div>
 
-  <h6>Conquistas</h6>
-  <%= image_tag 'button-cup.svg' %>
+    <div class='centralize'>
+      <p class='text-parag'>Conquistas</p>
+      <%= image_tag 'button-cup.svg' %>
+    </div>
 
-  <h6>Metas</h6>
-  <%= image_tag 'button-target.svg' %>
+    <div class='centralize'>
+      <p class='text-parag'>Metas</p>
+      <%= image_tag 'button-target.svg' %>
+    </div>
 
-  <h6>Calendario</h6>
-  <%= image_tag 'button-calendar.svg' %>
+    <div class='centralize'>
+      <p class='text-parag'>Calendario</p>
+      <%= image_tag 'button-calendar.svg' %>
+    </div>
 
-  <h6>Punição</h6>
-  <%= image_tag 'button-justice.svg' %>
+    <div class='centralize'>
+      <p class='text-parag'>Punição</p>
+      <%= image_tag 'button-justice.svg' %>
+    </div>
 
-</div>
-  <p>Os prazos perdidos de tarefas escolar e as discussoes sobre mesada acabam aqui.
-Crie metas a conquistar com seu kiddo! </p>
+  </div>
 
-<a class="btn btn-round" href="#">GO</a>
+  <div>
+    <p class='text-parag'>Os prazos perdidos de tarefas escolar e as discussoes sobre mesada acabam aqui.
+  Crie metas a conquistar com seu kiddo! </p>
+  </div>
+
+  <div class='row p-3 mb-3 justify-content-center'>
+     <a class="btn btn-round" href="#">GO</a>
+  </div>
+
 
 </div>
