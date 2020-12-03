@@ -8,6 +8,7 @@
 require 'date'
 
 families = %w[Pimenta Hargreaves Buscapé]
+goals = ["Bicicleta", "Play Station 5", "PC Gamer", "Livro Mágico", "Cama Elástica", "Canivete Suíço"]
 task_type = ["Casa", "Escola"]
 
 families.each do |family|
@@ -28,6 +29,7 @@ filhos = []
     email: Faker::Internet.email,
     password: 123123,
     admin: false,
+    points: rand(50..100),
     family_id: Family.all.sample.id
   )
   filhos << filho
@@ -51,5 +53,20 @@ end
     deadline: Date.today + rand(1..10),
     finished: [true, false].sample,
     user_id: filhos.sample.id
+  )
+end
+
+filhos.each do |filho|
+  Goal.create!(
+    title: goals.sample,
+    points: rand(100..500),
+    finished: true,
+    user_id: filho.id
+  )
+  Goal.create!(
+    title: goals.sample,
+    points: rand(100..500),
+    finished: false,
+    user_id: filho.id
   )
 end

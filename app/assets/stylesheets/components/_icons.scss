@@ -20,6 +20,7 @@
   color: $yellow;
   font-size: 45px;
 }
+
 .balance-icon {
   background-color: $orange;
   border-radius: 5px;
@@ -30,6 +31,7 @@
 
 .target-icon {
   background-color: $green;
+  border: 2px solid $white;
   border-radius: 5px;
   padding: 5px;
   color: $red;
