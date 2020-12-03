@@ -1,0 +1,44 @@
+<div class="container p-3" style="background-color: rgba(250,209,72,0.8);">
+  <div class="row">
+    <div class="col-12 col-md-3 border">
+      <h2>metas de</h2>
+      <div class="d-flex justify-content-around flex-wrap text-center border">
+        <% @user_family.each do |family_member| %>
+          <%= link_to(goals_path(user_son: family_member)) do %>
+            <% if family_member.photo.present? %>
+              <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
+            <% else %>
+              <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
+            <% end %>
+            <p><%= family_member.name %> <br> <%= family_member.points %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-9 d-flex flex-column justify-content-around border">
+      <div>
+        <p><i class="fas fa-bullseye target-icon"></i> metas em andamento</p>
+      </div>
+
+      <% if @selected_son.present? %>
+
+          <div class="card-goals">
+            <% @family_goals.each do |goal| %>
+              <p> <%= goal.title %> - Pontos necessários: <%= goal.points %></p>
+            <% end %>
+          </div>
+
+          <div>
+            <p><i class="fas fa-bullseye target-icon"></i> metas concluídas</p>
+          </div>
+
+          <div class="card-goals">
+            <% @family_goals_finished.each do |goal| %>
+              <p>Meta: <%= goal.title %> Pontos necessários: <%= goal.points %></p>
+            <% end %>
+          </div> 
+
+      <% end %>
+    </div>
+  </div>
