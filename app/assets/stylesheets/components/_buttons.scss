@@ -1,0 +1,21 @@
+.btn-go {
+  height: 70px;
+  width: 70px;
+  background-color:$blue;
+  border:$white;
+  color: $white;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  border: 4px solid white;
+  text-align:center;
+  font-size: 25px;
+}
+
+.btn-go:hover {
+  background-color: $green;
+  text-decoration: none;
+  color: $white;
+}
+
