@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'date'
 
 families = %w[Pimenta Hargreaves Buscapé]
 task_type = ["Casa", "Escola"]
@@ -21,7 +22,7 @@ families.each do |family|
 end
 
 filhos = []
-10.times do
+6.times do
   filho = User.create!(
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -32,13 +33,23 @@ filhos = []
   filhos << filho
 end
 
-
-50.times do
+20.times do
   Task.create!(
     title: Faker::Lorem.paragraph,
-    description: Faker::Lorem.paragraph(sentence_count: 2),
     points: rand(1..5),
     task_type: task_type.sample,
+    finished: [true, false].sample,
+    user_id: filhos.sample.id
+  )
+end
+
+20.times do
+  Task.create!(
+    title: Faker::Lorem.paragraph,
+    points: rand(1..5),
+    task_type: task_type.sample,
+    deadline: Date.today + rand(1..10),
+    finished: [true, false].sample,
     user_id: filhos.sample.id
   )
 end

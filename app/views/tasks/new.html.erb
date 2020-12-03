@@ -1,0 +1,12 @@
+<div class="container" style="background-color: rgba(250,209,72,0.8);">
+  <h2>nova tarefa</h2>
+
+  <%= simple_form_for(@task) do |f| %>
+    <%= f.input :user_id, as: :check_boxes, collection: @user_family, required: true, input_html: { include_empty: false } %>
+    <%= f.input :title %>
+    <%= f.input :deadline %>
+    <%= f.input :points, collection: TASKS_POINTS %>
+    <%= f.input :task_type, collection: TASKS_TYPE %>
+    <%= f.submit 'adicionar'%>
+  <% end %>
+</div>
