@@ -5,8 +5,8 @@ class TasksController < ApplicationController
     @selected_son = params[:user_son]
 
     if @selected_son.present?
-      @family_tasks_school = Task.where(user_id: @selected_son, task_type: "Escola")
-      @family_tasks_home = Task.where(user_id: @selected_son, task_type: "Casa")
+      @family_tasks_school = Task.where(user_id: @selected_son, home: true)
+      @family_tasks_home = Task.where(user_id: @selected_son, home: false)
     # else
     #   @family_tasks_school = Task.where(user_id: @user_family, task_type: "Escola")
     #   @family_tasks_home = Task.where(user_id: @user_family, task_type: "Casa")
@@ -45,6 +45,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :deadline, :points, :task_type)
+    params.require(:task).permit(:title, :deadline, :points, :home)
   end
 end

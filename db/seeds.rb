@@ -9,7 +9,7 @@ require 'date'
 
 families = %w[Pimenta Hargreaves Buscapé]
 goals = ["Bicicleta", "Play Station 5", "PC Gamer", "Livro Mágico", "Cama Elástica", "Canivete Suíço"]
-task_type = ["Casa", "Escola"]
+task_type = [false, true]
 
 families.each do |family|
   new_fam = Family.create!(name: family)
@@ -36,20 +36,25 @@ filhos = []
 end
 
 20.times do
-  Task.create!(
-    title: Faker::Lorem.paragraph,
-    points: rand(1..5),
-    task_type: task_type.sample,
-    finished: [true, false].sample,
-    user_id: filhos.sample.id
-  )
+  begin
+    t = Task.create!(
+      title: Faker::Lorem.paragraph,
+      points: rand(1..5),
+      home: [true, false].sample,
+      finished: [true, false].sample,
+      user_id: filhos.sample.id
+    )
+    
+  rescue => exception
+    binding.pry  
+  end
 end
 
 20.times do
   Task.create!(
     title: Faker::Lorem.paragraph,
     points: rand(1..5),
-    task_type: task_type.sample,
+    home: 0,
     deadline: Date.today + rand(1..10),
     finished: [true, false].sample,
     user_id: filhos.sample.id
