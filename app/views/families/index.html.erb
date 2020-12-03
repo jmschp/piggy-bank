@@ -18,7 +18,7 @@
     <div class="col col-md-9 d-flex flex-wrap justify-content-between align-content-around mt-5">
 
       <% @user_family.each do |family_member| %>
-        <%= render('shared/card-filho', family_member: family_member) %>
+        <%= render('shared/card-filho', family_member: family_member, css_class: "mb-3") %>
       <% end %>
     </div>
   </div>
