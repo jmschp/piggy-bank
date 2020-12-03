@@ -1,0 +1,34 @@
+<div class="card-filho m-1">
+  <div class="card-filho-icons">
+    <div class="card-filho-info">
+      <% if family_member.photo.present? %>
+        <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
+      <% else %>
+        <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
+      <% end %>
+      <p><%= family_member.name %></p>
+    </div>
+    <div class="card-filho-info">
+      <i class="fas fa-tasks card-filho-tasks-icon"></i>
+      <p> <%= family_member.tasks.count %> tarefas</p>
+    </div>
+    <div class="card-filho-info">
+      <i class="far fa-calendar-alt card-filho-calendar-icon"></i>
+      <p><%= family_member.tasks.where.not(deadline: nil).count %> </p>
+    </div>
+  </div>
+  <div class="card-filho-icons mt-1">
+    <div class="card-filho-info">
+      <i class="fas fa-medal card-filho-medal-icon"></i>
+      <p>10 conquistas</p>
+    </div>
+    <div class="card-filho-info">
+      <i class="fas fa-balance-scale card-filho-balance-icon"></i>
+      <p>10 ponições</p>
+    </div>
+    <div class="card-filho-info">
+      <i class="fas fa-bullseye card-filho-target-icon"></i>
+      <p>4 metas</p>
+    </div>
+  </div>
+</div>
