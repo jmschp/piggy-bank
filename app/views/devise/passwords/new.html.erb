@@ -1,18 +1,27 @@
-<h2>Forgot your password?</h2>
+<div class="container">
+  <div class= "col-12 container py-5 px-5" style="background-color: rgba(250,209,72,0.8);">
+    <div class= "col-md-6 p-4 my-5 mx-4 align-self-center" style= "background: white; border-radius:10px; border:4px solid; border-color: #5AC2C9;">
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+    <h2>esqueceu a sua senha?</h2>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :email,
+                  label: "email",
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+    </div>
+
+    <div class="form-actions">
+      <p>Send me reset password instructions</p>
+      <%= f.button :submit, "go!" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

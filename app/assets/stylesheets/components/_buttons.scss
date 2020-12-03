@@ -19,3 +19,12 @@
   color: $white;
 }
 
+.btn-choice {
+  text-decoration: none;
+  color:#CCCCCC;
+}
+
+.btn-choice:hover {
+  color: $blue;
+  text-decoration: none;
+}
