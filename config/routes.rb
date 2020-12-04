@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   resources :families, only: %i[index]
 
-  resources :tasks, only: %i[index new create]
+  resources :tasks, only: %i[index new create update]
+  get "/tasks/:id", to: "tasks#validate", as: "task_validate"
 
   resources :goals, only: %i[index]
 

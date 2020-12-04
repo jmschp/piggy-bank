@@ -33,6 +33,7 @@
         <div class="card-tasks">
           <% @family_tasks_school.each do |task| %>
             <p>
+              <%= task.id %>
               <%= task.deadline %>
               <% if task.finished? %>
                 <i class="fas fa-check-circle"></i>
@@ -42,6 +43,9 @@
               <%= task.title %>
               <% task.points.times do %>
                 <i class="fas fa-star"></i>
+              <% end %>
+              <% if current_user.admin? %>
+                <%= link_to("Validate", task_validate_path(task.id)) %>
               <% end %>
             </p>
           <% end %>
@@ -59,6 +63,9 @@
               <%= task.title %>
               <% task.points.times do %>
                 <i class="fas fa-star"></i>
+              <% end %>
+               <% if current_user.admin? %>
+                <%= link_to("Validate", task_validate_path(task.id)) %>
               <% end %>
             </p>
           <% end %>

@@ -6,16 +6,13 @@ class TasksController < ApplicationController
       @selected_son = params[:user_son]
 
       if @selected_son.present?
-        @family_tasks_school = Task.where(user_id: @selected_son, home: true)
-        @family_tasks_home = Task.where(user_id: @selected_son, home: false)
-      # else
-      #   @family_tasks_school = Task.where(user_id: @user_family, task_type: "Escola")
-      #   @family_tasks_home = Task.where(user_id: @user_family, task_type: "Casa")
+        @family_tasks_school = Task.where(user_id: @selected_son, home: true, validated: false)
+        @family_tasks_home = Task.where(user_id: @selected_son, home: false, validated: false)
       end
     else
       @user = current_user
-      @family_tasks_school = Task.where(user_id: @user.id, home: true)
-      @family_tasks_home = Task.where(user_id: @user.id, home: false)
+      @family_tasks_school = Task.where(user_id: @user.id, home: true, validated: false)
+      @family_tasks_home = Task.where(user_id: @user.id, home: false, validated: false)
     end
   end
 
@@ -41,6 +38,12 @@ class TasksController < ApplicationController
     else
       render :new
     end
+  end
+
+  def validate
+    @task = Task.find(params[:id])
+    @task.update(validated: true)
+    redirect_to tasks_path(user_son: @task.user_id)
   end
 
   private
