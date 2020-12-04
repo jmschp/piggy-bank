@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_191635) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "title", null: false
+    t.text "description", null: false
     t.integer "points", null: false
     t.date "deadline"
     t.boolean "finished", default: false, null: false
