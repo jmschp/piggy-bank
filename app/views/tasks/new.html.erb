@@ -1,14 +1,20 @@
-<div class="container" style="background-color: rgba(250,209,72,0.8);">
-  <div>
-  <h2>nova tarefa</h2>
+<div class="col-12 container py-5 px-5" style="background-color: rgba(250,209,72,0.8);">
+  <div class= "col-md-6 p-4 my-5 mx-auto" style= "background: white; border-radius:10px; border:4px solid; border-color: #7A75FC;">
+  <h2 class= "d-flex justify-content-center" style="color:#7A75FC;">nova tarefa</h2>
 
     <%= simple_form_for(@task) do |f| %>
-      <%= f.input :user_id, label: 'meu kiddo', as: :check_boxes, collection: @user_family, required: true, input_html: { include_empty: false } %>
+      <%= f.input :user_id, as: :check_boxes, collection: @user_family, required: true, input_html: { include_empty: false } %>
       <%= f.input :title, label:'tarefa' %>
-      <%= f.input :deadline,label: 'prazo'  %>
+      <div class="d-flex justify-content-left">
+        escola
+        <%= f.input :home, label:'casa', input_html: { class: "toggle" }  %>
+      </div>
+      <%= f.input :deadline, label: 'prazo', input_html: {type: "date", value: Date.today} %>
       <%= f.input :points, label: 'estrelas', collection: TASKS_POINTS %>
-      <%= f.input :home, input_html: { class: "toggle" }  %>
+
+      <div class="d-flex justify-content-center">
       <%= f.submit 'adicionar', class:'btn-action' %>
+      </div>
     <% end %>
   </div>
 </div>
