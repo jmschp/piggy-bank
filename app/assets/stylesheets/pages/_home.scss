@@ -1,43 +1,40 @@
 // Specific CSS for your home-page
-.container {
-  padding-bottom: 40px;
-}
 
-.container-bttns {
+.centralize {
   display: flex;
-  padding-left: 120px;
-  padding-bottom: 40px;
-}
-p {
-  color: white;
-  font-family: "Balsamiq Sans";
+  flex-direction: column;
   text-align: center;
 }
 
-h1 {
+.title {
   font-family: "Balsamiq Sans";
   text-align: center;
   justify-content: space-around;
   color: white;
 }
 
-h3 {
+.sub-title {
   font-family: "Balsamiq Sans";
   text-align: center;
   color: white;
 }
 
-h6 {
+.text-parag {
   font-family: "Balsamiq Sans";
-  padding-left: 10px;
   color: white;
+  text-align: center;
+  padding: 16px 16px 0px 16px;
 }
 
 .btn-round {
   color: white;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   background: #FAD148;
   transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .btn-round:hover {

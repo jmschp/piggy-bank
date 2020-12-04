@@ -1,0 +1,39 @@
+<div class="container p-3" style="background-color: rgba(250,209,72,0.8);">
+  <div class="row">
+    <div class="col-12 col-md-3 border">
+      <h2>metas de</h2>
+      <div class="d-flex justify-content-around flex-wrap text-center border">
+        <% @user_family.each do |family_member| %>
+          <%= link_to(goals_path(user_son: family_member)) do %>
+            <% if family_member.photo.present? %>
+              <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
+            <% else %>
+              <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
+            <% end %>
+            <p><%= family_member.name %> <br>
+              <%= family_member.points %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12 col-md-9 d-flex flex-column justify-content-around border">
+      <% if @selected_son.present? %>
+        <div>
+          <p><i class="fas fa-bullseye target-icon"></i> metas em andamento</p>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: <%= ((@son_goals.user.points.to_f / @son_goals.points.to_f) * 100).to_i %>%" aria-valuenow="<%= ((@son_goals.user.points.to_f / @son_goals.points.to_f) * 100).to_i %>" aria-valuemin="0" aria-valuemax="100">
+            <%= @son_goals.title %>
+          </div>
+        </div>
+        <div>
+          <p><i class="fas fa-bullseye target-icon"></i> metas concluídas</p>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+            <%= @son_goals_finished.title %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

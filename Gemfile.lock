@@ -277,6 +277,7 @@ DEPENDENCIES
   letter_opener
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
+  pry
   pry-byebug
   pry-rails
   puma (~> 4.1)
