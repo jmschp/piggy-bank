@@ -5,7 +5,7 @@
     <%= simple_form_for(@task) do |f| %>
       <%= f.input :user_id,
             label: 'meu kiddo',
-            as: :radio_buttons,
+            as: :check_boxes,
             collection_wrapper_tag: 'div',
             collection_wrapper_class: 'category-wrapper',
             item_wrapper_class: 'category-item',

@@ -34,7 +34,7 @@ class TasksController < ApplicationController
         @task.user = user
         @task.save
       end
-      redirect_to root_path
+      redirect_to tasks_path(user_son: @task.user_id)
     else
       render :new
     end

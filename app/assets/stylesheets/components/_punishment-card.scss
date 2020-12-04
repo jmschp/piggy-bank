@@ -1,0 +1,23 @@
+.punishments-card {
+  background-color: $white;
+  width: 550px;
+  border-left: 5px solid $green;
+  border-radius: 5px;
+  padding: 20px 0px 20px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.punishments-card-date {
+  text-align: center;
+  margin-right: 15px;
+  i {
+    font-size: 40px;
+    color: $green;
+  }
+  p {
+    margin-top: 5px;
+    background-color: $red;
+    border-radius: 15px;
+  }
+}

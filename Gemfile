@@ -36,12 +36,12 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 
 # Image storage service
+gem 'faker'
 gem 'cloudinary'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
-  gem 'faker'
   gem 'pry'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

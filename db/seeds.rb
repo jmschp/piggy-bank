@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'date'
 
-families = %w[Miguel Aline Fernando]
+families = %w[Buscapé Miguel Aline Fernando]
 goals = ["Bicicleta", "Play Station 5", "PC Gamer", "Livro Mágico", "Cama Elástica", "Canivete Suíço"]
 
 families.each do |family|
   new_fam = Family.create!(name: family)
   User.create!(
-    name: "Leader #{family}",
+    name: "Buscapé #{family}",
     email: "#{family}@piggy.com",
     password: "123123",
     admin: true,
@@ -70,4 +70,12 @@ filhos.each do |filho|
     finished: false,
     user_id: filho.id
   )
+  3.times do
+    Punishment.create!(
+      title: Faker::Lorem.paragraph,
+      points: rand(1..10),
+      date: Date.today - rand(1..10),
+      user_id: filho.id
+    )
+  end
 end
