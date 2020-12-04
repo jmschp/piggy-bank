@@ -70,4 +70,12 @@ filhos.each do |filho|
     finished: false,
     user_id: filho.id
   )
+  3.times do
+    Punishment.create!(
+      title: Faker::Lorem.paragraph,
+      points: rand(1..10),
+      date: Date.today - rand(1..10),
+      user_id: filho.id
+    )
+  end
 end
