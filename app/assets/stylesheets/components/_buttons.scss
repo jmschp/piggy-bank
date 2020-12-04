@@ -114,15 +114,16 @@
   box-sizing: border-box;
   width: 100%;
   font-size: 12px;
-  text-align: left;
+  text-align: center;
+  vertical-align: middle;
   padding: 10px 10px 30px 10px;
   border: 1px solid #EAEAEA;
   border-radius: 4px;
-  background-color: white;
+  background-color: #CCCCCC;
 }
 
 .category-selector:checked + label {
-  color: white !important;
+  color: #7A75FC !important;
 }
 
 

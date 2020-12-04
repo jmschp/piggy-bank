@@ -7,6 +7,9 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "flatpickr/dist/flatpickr";
+@import "jquery-bar-rating/dist/themes/css-stars";
+@import "flatpickr/dist/themes/confetti";
 
 // Your CSS partials
 @import "components/index";
@@ -23,4 +26,3 @@ a {
     text-decoration: none;
   }
 }
-
