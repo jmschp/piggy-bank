@@ -40,6 +40,7 @@ end
     points: rand(1..5),
     home: [true, false].sample,
     finished: [true, false].sample,
+    validated: [true, false].sample,
     user_id: filhos.sample.id
   )
 end
@@ -49,8 +50,9 @@ end
     title: Faker::Lorem.paragraph,
     points: rand(1..5),
     home: [true, false].sample,
-    deadline: Date.today + rand(1..10),
+    # deadline: Date.today + rand(1..10),
     finished: [true, false].sample,
+    validated: [true, false].sample,
     user_id: filhos.sample.id
   )
 end

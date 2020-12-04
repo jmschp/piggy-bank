@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_185542) do
     t.date "deadline"
     t.boolean "home"
     t.boolean "finished", default: false, null: false
+    t.boolean "validated", default: false, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
