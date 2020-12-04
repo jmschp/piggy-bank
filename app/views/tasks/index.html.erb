@@ -16,7 +16,7 @@
             <% end %>
           <% end %>
         </div>
-
+        <%= link_to("Nova tareafa", new_task_path) %> 
       <% else %>
         <% if current_user.photo.present? %>
           <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
