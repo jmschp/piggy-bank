@@ -25,7 +25,7 @@ class PunishmentsController < ApplicationController
         @punishment.user = user
         @punishment.save
       end
-      redirect_to punishments_path(user_son: user_ids[2])
+      redirect_to punishments_path(user_son: @punishment.user_id)
     else
       render :index
     end
