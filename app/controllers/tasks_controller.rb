@@ -43,6 +43,8 @@ class TasksController < ApplicationController
   def validate
     @task = Task.find(params[:id])
     @task.update(validated: true)
+    user = User.find(@task.user_id)
+    user.update(points: user.points += @task.points)
     redirect_to tasks_path(user_son: @task.user_id)
   end
 
