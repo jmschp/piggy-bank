@@ -37,6 +37,24 @@
   padding-x: 5px;
 }
 
+.btn-action-blue {
+  background-color:$white;
+  color: #5AC2C9;
+  border: 2px solid #5AC2C9;
+  border-radius: 48px;
+  padding-y: 3px;
+  padding-x: 5px;
+}
+
+.btn-action-blue:hover {
+  background-color: #5AC2C9;
+  color: $white;
+  border: 2px solid $white;
+  border-radius: 48px;
+  padding-y: 3px;
+  padding-x: 5px;
+}
+
 .btn-choice {
   text-decoration: none;
   color:#CCCCCC;
