@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'date'
 
-families = %w[Miguel Aline Fernando]
+families = %w[Buscapé Miguel Aline Fernando]
 goals = ["Bicicleta", "Play Station 5", "PC Gamer", "Livro Mágico", "Cama Elástica", "Canivete Suíço"]
 
 families.each do |family|
   new_fam = Family.create!(name: family)
   User.create!(
-    name: "Leader #{family}",
+    name: "Buscapé #{family}",
     email: "#{family}@piggy.com",
     password: "123123",
     admin: true,
