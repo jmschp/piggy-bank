@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'date'
 
-families = %w[Pimenta Hargreaves Buscapé]
+families = %w[Miguel Aline Fernando]
 goals = ["Bicicleta", "Play Station 5", "PC Gamer", "Livro Mágico", "Cama Elástica", "Canivete Suíço"]
 
 families.each do |family|
@@ -15,7 +15,7 @@ families.each do |family|
   User.create!(
     name: "Leader #{family}",
     email: "#{family}@piggy.com",
-    password: 123123,
+    password: "123123",
     admin: true,
     family_id: new_fam.id
   )
@@ -26,7 +26,7 @@ filhos = []
   filho = User.create!(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: 123123,
+    password: "123123",
     admin: false,
     points: rand(50..100),
     family_id: Family.all.sample.id

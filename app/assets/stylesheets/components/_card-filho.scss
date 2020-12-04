@@ -2,7 +2,7 @@
   width: 400px;
   height: 200px;
   background-color: $white;
-  padding: 20px;
+  padding: 10px 15px 0px;
   border: 5px solid $yellow;
   border-radius: 10px;
 }
@@ -10,7 +10,7 @@
 
 .card-filho-icons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   p {
     color: $purple;
   }

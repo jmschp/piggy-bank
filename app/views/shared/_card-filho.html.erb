@@ -25,17 +25,17 @@
   <div class="card-filho-icons">
     <div class="card-filho-info">
       <i class="fas fa-medal medal-icon"></i>
-      <p>conquistas: 10</p>
+      <p>metas: 4</p>
     </div>
 
     <div class="card-filho-info">
       <i class="fas fa-balance-scale balance-icon"></i>
-      <p>punições: 5</p>
+      <p>conquistas: <%= family_member.goals.where(finished: true).count %></p>
     </div>
 
     <div class="card-filho-info">
       <i class="fas fa-bullseye target-icon"></i>
-      <p>metas: 4</p>
+      <p>punições: 5</p>
     </div>
 
   </div>
