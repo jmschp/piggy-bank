@@ -2,14 +2,20 @@ class TasksController < ApplicationController
   before_action :set_user_family, only: %i[index new]
 
   def index
-    @selected_son = params[:user_son]
+    if current_user.admin?
+      @selected_son = params[:user_son]
 
-    if @selected_son.present?
-      @family_tasks_school = Task.where(user_id: @selected_son, home: true)
-      @family_tasks_home = Task.where(user_id: @selected_son, home: false)
-    # else
-    #   @family_tasks_school = Task.where(user_id: @user_family, task_type: "Escola")
-    #   @family_tasks_home = Task.where(user_id: @user_family, task_type: "Casa")
+      if @selected_son.present?
+        @family_tasks_school = Task.where(user_id: @selected_son, home: true)
+        @family_tasks_home = Task.where(user_id: @selected_son, home: false)
+      # else
+      #   @family_tasks_school = Task.where(user_id: @user_family, task_type: "Escola")
+      #   @family_tasks_home = Task.where(user_id: @user_family, task_type: "Casa")
+      end
+    else
+      @user = current_user
+      @family_tasks_school = Task.where(user_id: @user.id, home: true)
+      @family_tasks_home = Task.where(user_id: @user.id, home: false)
     end
   end
 

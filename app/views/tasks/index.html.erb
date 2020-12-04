@@ -1,61 +1,68 @@
 <div class="container p-3" style="background-color: rgba(250,209,72,0.8);">
   <div class="row">
+
     <div class="col-12 col-md-3 border">
-      <h2>tarefas de</h2>
-      <div class="d-flex justify-content-around flex-wrap text-center border">
-        <% @user_family.each do |family_member| %>
-          <%= link_to(tasks_path(user_son: family_member)) do %>
-            <% if family_member.photo.present? %>
-              <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
-            <% else %>
-              <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
+      <% if current_user.admin? %>
+        <h2>tarefas de</h2>
+        <div class="d-flex justify-content-around flex-wrap text-center border">
+          <% @user_family.each do |family_member| %>
+            <%= link_to(tasks_path(user_son: family_member)) do %>
+              <% if family_member.photo.present? %>
+                <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
+              <% else %>
+                <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
+              <% end %>
+              <p><%= family_member.name %></p>
             <% end %>
-            <p><%= family_member.name %></p>
           <% end %>
+        </div>
+
+      <% else %>
+        <% if current_user.photo.present? %>
+          <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
+        <% else %>
+          <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
         <% end %>
-      </div>
+        <p><%= @user.name %></p>
+      <% end %>
     </div>
 
     <div class="col-12 col-md-9 d-flex flex-column justify-content-around border">
-      <% if @selected_son.present? %>
-          <p><i class="fas fa-book"></i> na escola</p>
-
-          <div class="card-tasks">
-            <% @family_tasks_school.each do |task| %>
-              <p>
-                <%= task.deadline %>
-                <% if task.finished? %>
-                  <i class="fas fa-check-circle"></i>
-                <% else %>
-                  <i class="fas fa-times-circle"></i>
-                <% end %>
-                <%= task.title %>
-                <% task.points.times do %>
-                  <i class="fas fa-star"></i>
-                <% end %>
-              </p>
-            <% end %>
-          </div>
-
-          <p><i class="fas fa-home"></i> em casa</p>
-
-          <div class="card-tasks">
-            <% @family_tasks_home.each do |task| %>
-              <p>
-                <%= task.deadline %>
-                <% if task.finished? %>
-                  <i class="fas fa-check-circle"></i>
-                <% else %>
-                  <i class="fas fa-times-circle"></i>
-                <% end %>
-                <%= task.title %>
-                <% task.points.times do %>
-                  <i class="fas fa-star"></i>
-                <% end %>
-              </p>
-            <% end %>
-          </div>
-
-        <% end %>
+      <% if @selected_son.present? || !current_user.admin? %>
+        <p><i class="fas fa-book"></i> na escola</p>
+        <div class="card-tasks">
+          <% @family_tasks_school.each do |task| %>
+            <p>
+              <%= task.deadline %>
+              <% if task.finished? %>
+                <i class="fas fa-check-circle"></i>
+              <% else %>
+                <i class="fas fa-times-circle"></i>
+              <% end %>
+              <%= task.title %>
+              <% task.points.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </p>
+          <% end %>
+        </div>
+        <p><i class="fas fa-home"></i> em casa</p>
+        <div class="card-tasks">
+          <% @family_tasks_home.each do |task| %>
+            <p>
+              <%= task.deadline %>
+              <% if task.finished? %>
+                <i class="fas fa-check-circle"></i>
+              <% else %>
+                <i class="fas fa-times-circle"></i>
+              <% end %>
+              <%= task.title %>
+              <% task.points.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </p>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
