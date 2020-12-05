@@ -7,20 +7,22 @@
   border-radius: 10px;
 }
 
-
 .card-filho-icons {
   display: flex;
   justify-content: space-between;
-  p {
-    color: $purple;
-  }
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .card-filho-info {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0px 20px;
   img {
     width: 55px;
+  }
+  p {
+    color: $purple;
   }
 }
