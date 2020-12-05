@@ -13,7 +13,7 @@ goals = ["Bicicleta", "Play Station 5", "PC Gamer", "Livro Mágico", "Cama Elás
 families.each do |family|
   new_fam = Family.create!(name: family)
   User.create!(
-    name: "Buscapé #{family}",
+    name: "#{family} Buscapé",
     email: "#{family}@piggy.com",
     password: "123123",
     admin: true,
