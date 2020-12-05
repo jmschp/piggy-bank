@@ -24,7 +24,7 @@ end
 filhos = []
 6.times do
   filho = User.create!(
-    name: Faker::Name.name,
+    name: Faker::Name.first_name,
     email: Faker::Internet.email,
     password: "123123",
     admin: false,
