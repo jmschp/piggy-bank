@@ -4,7 +4,7 @@
       <% if family_member.photo.present? %>
         <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
       <% else %>
-        <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
+         <%= render("shared/avatar-piggy") %>
       <% end %>
       <p><%= family_member.name %></p>
     </div>

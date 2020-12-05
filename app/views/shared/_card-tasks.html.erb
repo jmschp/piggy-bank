@@ -1,0 +1,19 @@
+<div class="card-tasks">
+    <p>
+      <%= task.deadline %>
+      <% if task.finished? %>
+        <i class="fas fa-check-circle"></i>
+      <% else %>
+        <i class="fas fa-times-circle"></i>
+      <% end %>
+      <%= task.title %>
+      <% task.points.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      <% if current_user.admin? %>
+        <div class="btn-action">
+          <%= link_to("validar", task_validate_path(task.id))%>
+        <% end %>
+      </div>
+    </p>
+</div>

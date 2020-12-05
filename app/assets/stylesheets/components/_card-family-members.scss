@@ -1,0 +1,11 @@
+.family-members {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    p {
+        color: $white;
+    }
+}
+
+// d-flex justify-content-around flex-wrap text-center align-items-center
