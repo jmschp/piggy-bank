@@ -20,42 +20,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.card-filho-tasks-icon {
-  background-color: $red;
-  border-radius: 5px;
-  padding: 5px;
-  color: $black;
-  font-size: 45px;
-}
-.card-filho-calendar-icon {
-  background-color: $yellow;
-  border-radius: 5px;
-  padding: 5px;
-  color: $black;
-  font-size: 45px;
-}
-
-.card-filho-medal-icon {
-  background-color: $purple;
-  border-radius: 5px;
-  padding: 5px;
-  color: $yellow;
-  font-size: 45px;
-}
-.card-filho-balance-icon {
-  background-color: $orange;
-  border-radius: 5px;
-  padding: 5px;
-  color: $yellow;
-  font-size: 45px;
-}
-
-.card-filho-target-icon {
-  background-color: $green;
-  border-radius: 5px;
-  padding: 5px;
-  color: $red;
-  font-size: 45px;
+  img {
+    width: 55px;
+  }
 }
