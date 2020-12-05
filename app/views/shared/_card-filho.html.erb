@@ -20,19 +20,25 @@
         <p>prazos: <%= family_member.tasks.where.not(deadline: nil).count %> </p>
       <% end %>
     </div>
+  </div>
+  <div class="card-filho-icons">
     <div class="card-filho-info">
-      <%= link_to(tasks_path(user_son: family_member.id)) do %>
+      <%= link_to(goals_path(user_son: family_member.id)) do %>
         <%= image_tag("btn-target.svg") %>
         <p>metas: <%= family_member.goals.where(finished: true).count %></p>
       <% end %>
     </div>
     <div class="card-filho-info">
-      <%= image_tag("btn-cup.svg") %>
-      <p>conquistas: <%= family_member.goals.where(finished: true).count %></p>
+      <%= link_to(goals_path(user_son: family_member.id)) do %>
+        <%= image_tag("btn-cup.svg") %>
+        <p>conquistas: <%= family_member.goals.where(finished: true).count %></p>
+      <% end %>
     </div>
     <div class="card-filho-info">
-      <%= image_tag("btn-justice.svg") %>
-      <p>punições: <%= family_member.punishments.all.count %></p>
+      <%= link_to(goals_path(user_son: family_member.id)) do %>
+        <%= image_tag("btn-justice.svg") %>
+        <p>punições: <%= family_member.punishments.all.count %></p>
+      <% end %>
     </div>
   </div>
 </div>
