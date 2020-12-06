@@ -1,1 +1,5 @@
-<%= image_tag("https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large") %>
+<% if family_member.photo.present? %>
+  <%= cl_image_tag(family_member.photo.key, class: "avatar-bordered", alt: "avatar-bordered") %>
+<% else %>
+  <%= image_tag("piggy-green.svg", class: "avatar-bordered", alt: "avatar-bordered") %>
+<% end %>

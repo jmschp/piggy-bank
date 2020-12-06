@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'date'
 
-families = %w[Buscapé Miguel Aline Fernando]
+families = %w[Buscapé Miguel]
 goals = ["Bicicleta", "Play Station 5", "PC Gamer", "Livro Mágico", "Cama Elástica", "Canivete Suíço"]
 
 families.each do |family|
@@ -24,7 +24,7 @@ end
 filhos = []
 6.times do
   filho = User.create!(
-    name: Faker::Name.name,
+    name: Faker::Name.first_name,
     email: Faker::Internet.email,
     password: "123123",
     admin: false,
@@ -34,7 +34,7 @@ filhos = []
   filhos << filho
 end
 
-20.times do
+40.times do
   Task.create!(
     title: Faker::Lorem.paragraph,
     points: rand(1..5),
@@ -45,12 +45,12 @@ end
   )
 end
 
-20.times do
+40.times do
   Task.create!(
     title: Faker::Lorem.paragraph,
     points: rand(1..5),
     home: [true, false].sample,
-    # deadline: Date.today + rand(1..10),
+    deadline: Date.today + rand(1..10),
     finished: [true, false].sample,
     validated: [true, false].sample,
     user_id: filhos.sample.id
@@ -70,7 +70,7 @@ filhos.each do |filho|
     finished: false,
     user_id: filho.id
   )
-  3.times do
+  4.times do
     Punishment.create!(
       title: Faker::Lorem.paragraph,
       points: rand(1..10),

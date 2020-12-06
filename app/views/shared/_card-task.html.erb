@@ -1,0 +1,20 @@
+<div class="card-task <%= css_class %>">
+  <% if task.deadline.present? %>
+    <div class="card-tasks-deadline">
+      <h2><%= task.deadline.month %><br>
+        <%= task.deadline.year %></h2>
+    </div>
+  <% end %>
+  <div class="card-task-infos">
+    <h2><%= task.title %></h2>
+    <p>
+      <strong>Terminada? <% if task.finished? %> <i class="fas fa-check-circle"></i> <% else %> <i class="fas fa-times-circle"></i> <% end %> </strong>
+      Esta tarefa vale: <span class="card-tasks-points"> <% task.points.times do %> <i class="fas fa-star"></i> <% end %> </span>
+    </p>
+  </div>
+  <% if current_user.admin? %>
+    <div class="btn-action">
+      <%= link_to("validar", task_validate_path(task.id))%>
+    </div>
+  <% end %>
+</div>

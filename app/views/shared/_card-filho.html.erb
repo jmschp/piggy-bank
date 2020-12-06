@@ -1,42 +1,40 @@
 <div class="card-filho <%= css_class %>">
-
   <div class="card-filho-icons">
     <div class="card-filho-info">
-      <% if family_member.photo.present? %>
-        <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
-      <% else %>
-        <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
-      <% end %>
+      <%= render("shared/avatar", family_member: family_member) %>
       <p><%= family_member.name %></p>
     </div>
-
     <div class="card-filho-info">
-      <i class="fas fa-tasks tasks-icon"></i>
-      <p>tarefas: <%= family_member.tasks.count %> </p>
+      <%= link_to(tasks_path(user_son: family_member.id)) do %>
+        <%= image_tag("btn-task.svg") %>
+        <p>tarefas: <%= family_member.tasks.count %> </p>
+      <% end %>
     </div>
-    
     <div class="card-filho-info">
-      <i class="far fa-calendar-alt calendar-icon"></i>
-      <p>prazos: <%= family_member.tasks.where.not(deadline: nil).count %> </p>
+      <%= link_to(tasks_path(user_son: family_member.id)) do %>
+        <%= image_tag("btn-calendar.svg") %>
+        <p>prazos: <%= family_member.tasks.where.not(deadline: nil).count %> </p>
+      <% end %>
     </div>
-
   </div>
-
   <div class="card-filho-icons">
     <div class="card-filho-info">
-      <i class="fas fa-medal medal-icon"></i>
-      <p>metas: 4</p>
+      <%= link_to(goals_path(user_son: family_member.id)) do %>
+        <%= image_tag("btn-target.svg") %>
+        <p>metas: <%= family_member.goals.where(finished: true).count %></p>
+      <% end %>
     </div>
-
     <div class="card-filho-info">
-      <i class="fas fa-balance-scale balance-icon"></i>
-      <p>conquistas: <%= family_member.goals.where(finished: true).count %></p>
+      <%= link_to(goals_path(user_son: family_member.id)) do %>
+        <%= image_tag("btn-cup.svg") %>
+        <p>conquistas: <%= family_member.goals.where(finished: true).count %></p>
+      <% end %>
     </div>
-
     <div class="card-filho-info">
-      <i class="fas fa-bullseye target-icon"></i>
-      <p>punições: 5</p>
+      <%= link_to(goals_path(user_son: family_member.id)) do %>
+        <%= image_tag("btn-justice.svg") %>
+        <p>punições: <%= family_member.punishments.all.count %></p>
+      <% end %>
     </div>
-
   </div>
 </div>

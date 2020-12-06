@@ -1,24 +1,21 @@
-<div class="container" style="background-color: rgba(90,194,201,0.8);">
+<div class="container-fluid family-index">
   <div class="row">
-    <div class="col-12 col-md-3 mt-5">
-      <% if @user.photo.present? %>
-        <%= cl_image_tag(@user.photo.key, class: "avatar-large", alt: "avatar-large") %>
-      <% else %>
-        <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
-      <% end %>
-      <div>
-      <h2><%= @user.name %></h2>
-      <p>acompanhe as tarefas e conquistas de <%= @user_family.count %> kiddos! </p>
+    <div class="col-12 col-md-4">
+      <div class="family-info">
+        <%= render("shared/avatar", family_member: @user) %>
+        <h2><%= @user.name %></h2>
+        <p>acompanhe as tarefas e conquistas de <%= @user_family.count %> kiddos!</p>
+        <%= link_to(new_user_invitation_path, class: "btn-add-kid") do %>
+          <%= image_tag("add-kid.svg") %>
+        <% end %>
       </div>
-      <%= link_to(new_user_invitation_path) do %>
-        <%= image_tag("add-kid.svg") %>
-      <% end %>
     </div>
-
-    <div class="col-12 col-md-9 d-flex flex-wrap justify-content-between align-content-around mt-5">
-
-      <% @user_family.each do |family_member| %>
-        <%= render('shared/card-filho', family_member: family_member, css_class: "mb-3") %>
-      <% end %>
+    <div class="col-12 col-md-8">
+      <div class="family-cards">
+        <% @user_family.each do |family_member| %>
+          <%= render('shared/card-filho', family_member: family_member, css_class: "mb-5") %>
+        <% end %>
+      </div>
     </div>
   </div>
+</div>

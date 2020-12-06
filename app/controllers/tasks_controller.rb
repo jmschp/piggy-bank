@@ -6,8 +6,8 @@ class TasksController < ApplicationController
       @selected_son = params[:user_son]
 
       if @selected_son.present?
-        @family_tasks_school = Task.where(user_id: @selected_son, home: true, validated: false)
-        @family_tasks_home = Task.where(user_id: @selected_son, home: false, validated: false)
+        @family_tasks_school = Task.where(user_id: @selected_son, home: true, validated: false).order(:deadline)
+        @family_tasks_home = Task.where(user_id: @selected_son, home: false, validated: false).order(:deadline)
       end
     else
       @user = current_user

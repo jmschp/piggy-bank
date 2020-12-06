@@ -1,6 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $yellow;
+}
+
+.navbar-home {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  box-shadow: none; 
+}
+
+.nav-link {
+  color: $white !important;
 }
 
 .navbar-lewagon .navbar-collapse {
