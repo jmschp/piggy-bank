@@ -1,11 +1,7 @@
 <div class="card-filho <%= css_class %>">
   <div class="card-filho-icons">
     <div class="card-filho-info">
-      <% if family_member.photo.present? %>
-        <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
-      <% else %>
-         <%= render("shared/avatar-piggy") %>
-      <% end %>
+      <%= render("shared/avatar", family_member: family_member) %>
       <p><%= family_member.name %></p>
     </div>
     <div class="card-filho-info">

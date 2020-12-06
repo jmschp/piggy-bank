@@ -1,1 +1,5 @@
-<%= cl_image_tag(user_image, class: "avatar-bordered", alt: "avatar-bordered") %>
+<% if family_member.photo.present? %>
+  <%= cl_image_tag(family_member.photo.key, class: "avatar-bordered", alt: "avatar-bordered") %>
+<% else %>
+  <%= image_tag("piggy-green.svg", class: "avatar-bordered", alt: "avatar-bordered") %>
+<% end %>

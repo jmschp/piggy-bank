@@ -34,7 +34,7 @@ filhos = []
   filhos << filho
 end
 
-20.times do
+40.times do
   Task.create!(
     title: Faker::Lorem.paragraph,
     points: rand(1..5),
@@ -45,7 +45,7 @@ end
   )
 end
 
-20.times do
+40.times do
   Task.create!(
     title: Faker::Lorem.paragraph,
     points: rand(1..5),

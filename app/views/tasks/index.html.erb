@@ -1,47 +1,35 @@
-<div class="container.fluid">
-  <div class="row family-tasks">
-
+<div class="container.fluid family-tasks">
+  <div class="row">
     <div class="col-12 col-md-4">
-
-        <h3>tarefas de</h3>
-        <% if current_user.admin? %>
-
+      <h3>tarefas de</h3>
+      <% if current_user.admin? %>
         <div class="family-members">
           <% @user_family.each do |family_member| %>
             <%= link_to(tasks_path(user_son: family_member)) do %>
-              <% if family_member.photo.present? %>
-                <%= cl_image_tag(family_member.photo.key, class: "avatar-bordered", alt: "avatar-bordered") %>
-              <% else %>
-                <%= render("shared/avatar-piggy") %>
-              <% end %>
+              <%= render("shared/avatar", family_member: family_member) %>
               <p><%= family_member.name %></p>
             <% end %>
           <% end %>
         </div>
-        
-        <%= link_to("Nova tareafa", new_task_path) %>
-
+        <%= link_to("Nova tarefa", new_task_path, class: "btn-action") %>
       <% else %>
-        <% if current_user.photo.present? %>
-          <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
-        <% else %>
-          <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
-        <% end %>
+        <%= render("shared/avatar", family_member: @user) %>
         <p><%= @user.name %></p>
       <% end %>
-
     </div>
-
     <div class="col-12 col-md-8">
-
       <% if @selected_son.present? || !current_user.admin? %>
         <h4><i class="fas fa-book"></i> na escola</h4>
+
         <% @family_tasks_school.each do |task| %>
-          <%= render("shared/card-tasks", task: task) %>
+          <%= render("shared/card-task", task: task, css_class: "mb-2") %>
         <% end %>
+
         <h4><i class="fas fa-home"></i> em casa</h4>
+        <% @family_tasks_home.each do |task| %>
+          <%= render("shared/card-task", task: task, css_class: "mb-2") %>
+        <% end %>
       <% end %>
     </div>
-
   </div>
 </div>
