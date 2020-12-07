@@ -19,23 +19,20 @@
     </div>
     <div class="col-12 col-md-8">
       <% if @selected_son.present? %>
-
         <h2 class="goal-type-title"> <%= svg_tag('target-arrow.svg') %>metas em andamento</h2>
-
         <div class="goals">
           <% @son_goals.each do |goal|%>
             <%= render("shared/card-goal", goal: goal, css_class: "mb-3") %>
           <% end %>
         </div>
-
-
         <h2 class="goal-type-title"> <%= svg_tag('target.svg') %>metas atingidas</h2>
-
         <div class="goals">
+          <% @son_goals_finished.each do |goal|%>
+            <%= render("shared/card-goal-finished", goal: goal, css_class: "mb-3") %>
+          <% end %>
         </div>
-
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
+</div>
 </div>

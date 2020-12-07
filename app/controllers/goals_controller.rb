@@ -15,11 +15,11 @@ class GoalsController < ApplicationController
     goal = Goal.find(params[:id])
     user = goal.user
     if user.points <= 0
-      redirect_to goals_path(user_son: goal.user_id), alert: "Você não tem pontos"
+      redirect_to goals_path(user_son: goal.user_id), alert: current_user.admin? ? "Seu kiddo não tem pontos" : "Você não tem pontos"
     else
       remaining_points_to_finish = goal.total_points - goal.points
       if user.points > remaining_points_to_finish
-        goal.update(points: remaining_points_to_finish)
+        goal.update(points: goal.points + remaining_points_to_finish)
         user.update(points: user.points - remaining_points_to_finish)
       else
         goal.update(points: goal.points += user.points)

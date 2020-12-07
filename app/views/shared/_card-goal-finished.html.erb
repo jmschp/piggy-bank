@@ -1,0 +1,12 @@
+<div class="card-goal <%= css_class %>">
+  <div class="progress card-goal-progress">
+    <div class="progress-bar bg-success card-goal-progress" role="progressbar" style="width:
+        <%= ((goal.points.to_f / goal.total_points.to_f) * 100).to_i %>%" aria-valuenow="
+        <%= ((goal.points.to_f / goal.total_points.to_f) * 100).to_i %>" aria-valuemin="0" aria-valuemax="100">
+        <h4><%= goal.title %></h4>
+    </div>
+  </div>
+  <div class="card-goal-infos">
+    <span>juntou <%= goal.points %> <%= svg_tag("star.svg") %></span><span>faltam <%= goal.total_points - goal.points %> <%= svg_tag("star.svg") %></span>
+  </div>
+</div>
