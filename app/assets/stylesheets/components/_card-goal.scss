@@ -1,6 +1,28 @@
-.card-goals {
+.card-goal {
     background-color: $white;
-    width: auto;
-    height: auto;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-goal-progress {
+  height: 50px;
+  font-size: 20px;
+}
+.card-goal-progress {
+  h4 {
+    margin: 0px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.card-goal-infos {
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    svg {
+        height: 25px;
+        fill: $yellow;
+    }
 }
