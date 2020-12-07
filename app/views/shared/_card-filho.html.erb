@@ -21,7 +21,7 @@
     <div class="card-filho-info">
       <%= link_to(goals_path(user_son: family_member.id)) do %>
         <%= image_tag("btn-target.svg") %>
-        <p>metas: <%= family_member.goals.where(finished: true).count %></p>
+        <p>metas: <%= family_member.goals.where(finished: false).count %></p>
       <% end %>
     </div>
     <div class="card-filho-info">
