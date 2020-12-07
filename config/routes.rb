@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :goals, only: %i[index]
 
-  resources :punishments, only: %i[index create]
+  resources :punishments, only: %i[index new create]
 
   resources :chatrooms, only: :show do
     resources :messages, only: :create

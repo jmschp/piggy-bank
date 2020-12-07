@@ -1,0 +1,42 @@
+<div class="container p-3" style="background-color: rgba(250,209,72,0.8);">
+  <div class="row">
+    <div class="col-12 col-md-4 border">
+      <h2>punições de</h2>
+      <div class="d-flex justify-content-around flex-wrap text-center border">
+        <% @user_family.each do |family_member| %>
+          <%= link_to(punishments_path(user_son: family_member)) do %>
+            <% if family_member.photo.present? %>
+              <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
+            <% else %>
+              <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
+            <% end %>
+            <p><%= family_member.name %><br>
+              Pontos acumulados: <%= family_member.points %><br>
+              Punições aplicadas: <%= family_member.punishments.count %>
+            </p>
+          <% end %>
+        <% end %>
+        <div class="border">
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-8 d-flex flex-column justify-content-around border">
+      <% if @selected_son.present? %>
+        <% @son_punishments.each do |punishment| %>
+          <div class="punishments-card mb-2">
+            <div class="punishments-card-date">
+              <i class="fas fa-balance-scale"></i>
+              <p><%= punishment.date.month %><br>
+                <%= punishment.date.year %></p>
+            </div>
+            <div class="punishments-card-infos">
+              <p><%= punishment.title %></p>
+              <p>Penalização aplicada: <%= punishment.points %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

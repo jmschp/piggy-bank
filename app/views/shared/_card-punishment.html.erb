@@ -1,0 +1,11 @@
+<div class="punishments-card <%= css_class %>">
+  <div class="punishments-card-date">
+    <i class="fas fa-balance-scale"></i>
+    <p><%= punishment.date.day %>-<%= punishment.date.month %><br>
+      <%= punishment.date.year %></p>
+  </div>
+  <div class="punishments-card-infos">
+    <h4><%= punishment.title %></h4>
+    <p>Penalização aplicada: -<%= punishment.points %><i class="fas fa-star punishment-star"></i></p>
+  </div>
+</div>

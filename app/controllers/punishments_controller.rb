@@ -3,11 +3,14 @@ class PunishmentsController < ApplicationController
 
   def index
     @selected_son = params[:user_son]
-    @punishment = Punishment.new
     if @selected_son.present?
       @son = User.find(@selected_son)
-      @son_punishments = Punishment.where(user_id: @selected_son)
+      @son_punishments = Punishment.where(user_id: @selected_son).order(date: :desc)
     end
+  end
+
+  def new
+    @punishment = Punishment.new
   end
 
   def create

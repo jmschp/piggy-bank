@@ -1,4 +1,4 @@
-.index-tasks {
+.index-punishments {
     background-color: $blue;
     padding: 25px;
     h1 {
@@ -9,13 +9,13 @@
     }
 }
 
-.tasks {
-    height: 300px;
+.punishments {
+    height: 320px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
     overflow: scroll;
     background-color: $yellow;
     padding: 10px;
-}
-
-.task-type-title {
-    margin: 25px 0px;
 }
