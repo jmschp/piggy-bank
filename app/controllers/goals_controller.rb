@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :set_user_family, only: %i[index]
+  before_action :set_user_family, only: %i[index new]
 
   def index
     @selected_son = params[:user_son]
@@ -8,6 +8,30 @@ class GoalsController < ApplicationController
       @son = User.find(@selected_son)
       @son_goals = Goal.where(user_id: @selected_son, finished: false)
       @son_goals_finished = Goal.where(user_id: @selected_son, finished: true)
+    end
+  end
+
+  def new
+    @goal = Goal.new
+  end
+
+  def create
+    @goal = Goal.new(goal_params)
+    @goal.user = current_user
+    user_ids = params[:goal][:user_id]
+
+    if @goal.valid? && user_ids.count >= 2
+      user_ids.each do |user_id|
+        next unless user_id.present?
+
+        @goal = Goal.new(goal_params)
+        user = User.find(user_id)
+        @goal.user = user
+        @goal.save
+      end
+      redirect_to goals_path(user_son: @goal.user_id)
+    else
+      render :new, alert: "Meta inválida"
     end
   end
 
@@ -31,8 +55,7 @@ class GoalsController < ApplicationController
 
   private
 
-  def set_user_family
-    @user = current_user
-    @user_family = User.where(family_id: @user.family).where.not(id: @user.id)
+  def goal_params
+    params.require(:goal).permit(:title, :total_points)
   end
 end

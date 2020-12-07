@@ -11,7 +11,7 @@
             <% end %>
           <% end %>
         </div>
-        <%= link_to("Nova meta", "#", class: "btn-action") %>
+        <%= link_to("Nova meta", new_goal_path, class: "btn-action") %>
       <% else %>
         <%= render("shared/avatar", family_member: @user) %>
         <p><%= @user.name %></p>

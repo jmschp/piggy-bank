@@ -39,9 +39,4 @@ class PunishmentsController < ApplicationController
   def punishment_params
     params.require(:punishment).permit(:title, :points, :date)
   end
-
-  def set_user_family
-    @user = current_user
-    @user_family = User.where(family_id: @user.family).where.not(id: @user.id)
-  end
 end
