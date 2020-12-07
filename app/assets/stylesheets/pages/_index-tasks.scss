@@ -1,7 +1,19 @@
-.family-tasks {
+.index-tasks {
     background-color: $blue;
     padding: 25px;
     h4 {
         color: $white;
     }
+}
+
+.tasks {
+    height: 300px;
+    overflow: scroll;
+    background-color: $yellow;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+
+.task-type-tilte {
+    margin: 25px 0px;
 }
