@@ -58,18 +58,25 @@ end
 end
 
 filhos.each do |filho|
-  Goal.create!(
-    title: goals.sample,
-    points: rand(100..500),
-    finished: true,
-    user_id: filho.id
-  )
-  Goal.create!(
-    title: goals.sample,
-    points: rand(100..500),
-    finished: false,
-    user_id: filho.id
-  )
+  points = rand(100..500)
+  2.times do
+    Goal.create!(
+      title: goals.sample,
+      points: points,
+      total_points: points + 300,
+      finished: false,
+      user_id: filho.id
+    )
+  end
+  2.times do
+    Goal.create!(
+      title: goals.sample,
+      points: points,
+      total_points: points,
+      finished: true,
+      user_id: filho.id
+    )
+  end
   4.times do
     Punishment.create!(
       title: Faker::Lorem.paragraph,

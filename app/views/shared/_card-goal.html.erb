@@ -1,12 +1,12 @@
-<div class="card-goal">
+<div class="card-goal <%= css_class %>">
   <div class="progress card-goal-progress">
     <div class="progress-bar bg-warning card-goal-progress" role="progressbar" style="width:
-        <%= ((son_goals.user.points.to_f / son_goals.points.to_f) * 100).to_i %>%" aria-valuenow="
-        <%= ((son_goals.user.points.to_f / son_goals.points.to_f) * 100).to_i %>" aria-valuemin="0" aria-valuemax="100">
-        <h4><%= son_goals.title %></h4>
+        <%= ((goal.points.to_f / goal.total_points.to_f) * 100).to_i %>%" aria-valuenow="
+        <%= ((goal.points.to_f / goal.total_points.to_f) * 100).to_i %>" aria-valuemin="0" aria-valuemax="100">
+        <h4><%= goal.title %></h4>
     </div>
   </div>
   <div class="card-goal-infos">
-    <span>juntou 5 <%= svg_tag("star.svg") %></span><span>faltam 500 stars <%= svg_tag("star.svg") %></span>
+    <span>juntou <%= goal.points %> <%= svg_tag("star.svg") %></span> <span><%= link_to("adicionar pontos", add_points_path(goal.id)) %></span><span>faltam <%= goal.total_points - goal.points %> <%= svg_tag("star.svg") %></span>
   </div>
 </div>

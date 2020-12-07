@@ -23,18 +23,16 @@
         <h2 class="goal-type-title"> <%= svg_tag('target-arrow.svg') %>metas em andamento</h2>
 
         <div class="goals">
-          <%= render("shared/card-goal", son_goals: @son_goals) %>
+          <% @son_goals.each do |goal|%>
+            <%= render("shared/card-goal", goal: goal, css_class: "mb-3") %>
+          <% end %>
         </div>
 
 
         <h2 class="goal-type-title"> <%= svg_tag('target.svg') %>metas atingidas</h2>
 
         <div class="goals">
-          <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-              <%= @son_goals_finished.title %>
-            </div>
-          </div>
+        </div>
 
         <% end %>
       </div>

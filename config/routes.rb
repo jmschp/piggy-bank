@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/tasks/:id", to: "tasks#validate", as: "task_validate"
 
   resources :goals, only: %i[index]
+  get "/goads/:id", to: "goals#add_points", as: "add_points"
 
   resources :punishments, only: %i[index new create]
 
