@@ -28,7 +28,7 @@
         <h2 class="goal-type-title"> <%= svg_tag('target.svg') %>metas atingidas</h2>
         <div class="goals">
           <% @son_goals_finished.each do |goal|%>
-            <%= render("shared/card-goal-finished", goal: goal, css_class: "mb-3") %>
+            <%= render("shared/card-goal-finished", goal: goal, css_class: "mb-4") %>
           <% end %>
         </div>
       <% end %>
