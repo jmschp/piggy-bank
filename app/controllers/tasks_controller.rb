@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  before_action :set_user_family, only: %i[index new]
 
   def index
     if current_user.admin?

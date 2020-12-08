@@ -6,7 +6,8 @@
         <div class="card-family-members">
           <% @user_family.each do |family_member| %>
             <%= link_to(tasks_path(user_son: family_member)) do %>
-              <%= render("shared/card-filho", family_member: family_member, css_class: "") %>
+              <%= render("shared/avatar", family_member: family_member) %>
+              <p><%= family_member.name %></p>
             <% end %>
           <% end %>
         </div>

@@ -17,7 +17,14 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  svg {
+    fill: $yellow;
+    width: 30px;
+
+  }
   img {
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    margin: auto;
     width: 55px;
   }
   p {

@@ -1,5 +1,4 @@
 class GoalsController < ApplicationController
-  before_action :set_user_family, only: %i[index new]
 
   def index
     @selected_son = params[:user_son]
