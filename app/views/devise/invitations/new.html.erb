@@ -1,8 +1,8 @@
 <div class="container.fluid new-devise-invitation">
   <div class="row justify-content-center">
     <div class="col-12 col-md-6">
-      <div class="login-form">
-        <div class="login-form-content">
+      <div class="form-layout">
+        <div class="form-layout-content">
           <h1>Convidar kiddos!</h1>
           <%= simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f| %>
             <%= f.error_notification %>

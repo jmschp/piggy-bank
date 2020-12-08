@@ -1,7 +1,10 @@
-<%= simple_form_for(@punishment) do |f| %>
-  <%= f.input :user_id, as: :check_boxes, collection: @user_family, required: true, input_html: { include_empty: false } %>
-  <%= f.input :title %>
-  <%= f.input :points %>
-  <%= f.input :date %>
-  <%= f.submit %>
-<% end %>
+<div class="container.fluid new-punishment">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 form-layout">
+      <div class="form-layout-content">
+        <h1>Nova punição</h1>
+        <%= render("punishment-form.html", goal: @punishment) %>
+      </div>
+    </div>
+  </div>
+</div>

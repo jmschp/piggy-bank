@@ -1,6 +1,6 @@
 .banner-login {
   background-color: $blue;
-  // padding: 150px 20px;
+  padding: 150px 20px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -33,15 +33,3 @@
   }
 }
 
-.login-form {
-  // height: 100vh;
-  padding: 50px;
-  background-color: $yellow;
-}
-
-.login-form-content {
-  padding: 30px;
-  background-color: $white;
-  border-radius: 10px;
-  border:4px solid $blue;
-}
