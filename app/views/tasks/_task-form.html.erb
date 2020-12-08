@@ -1,5 +1,7 @@
  <%= simple_form_for(@task) do |f| %>
-  <%= f.input :user_id, as: :check_boxes, collection: @form_collection, label: "Selecione seus kidos",label_method: :second, value_method: :first %>
+  <%= f.input :user_id, as: :check_boxes, collection: @form_collection, label: "selecione seus kiddos",label_method: :second, value_method: :first %>
+
+
   <%= f.input :title, label:'tarefa' %>
   <div class="d-flex justify-content-left">
     escola
