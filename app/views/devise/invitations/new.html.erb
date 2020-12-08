@@ -1,22 +1,24 @@
-<div class="col-12 container py-5 px-5" style="background-color: rgba(250,209,72,0.8);">
-  <div class= "col-md-6 p-4 my-5 mx-auto" style= "background: white; border-radius:10px; border:4px solid; border-color: #7A75FC;">
-  <h2><%= t "devise.invitations.new.header" %></h2>
-
-  <%= simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f| %>
-    <%= f.error_notification %>
-
-    <% resource.class.invite_key_fields.each do |field| -%>
-      <div class="form-inputs">
-        <%= f.input field, required: true %>
+<div class="container.fluid new-devise-invitation">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6">
+      <div class="login-form">
+        <div class="login-form-content">
+          <h1>Convidar kiddos!</h1>
+          <%= simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f| %>
+            <%= f.error_notification %>
+            <% resource.class.invite_key_fields.each do |field| -%>
+              <div class="form-inputs">
+                <%= f.input field, required: true %>
+              </div>
+            <% end -%>
+            <%= f.input :name, label: 'Nome', required: true %>
+            <%= f.input :family_id, as: :hidden, input_html: { value: current_user.family_id } %>
+            <div class="form-actions btn-action">
+              <%= f.button :submit, "Enviar convite" %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end -%>
-
-    <%= f.input :name, label:'Nome', required: true %>
-    <%= f.input :family_id, as: :hidden, input_html: { value: current_user.family_id } %>
-
-    <div class="form-actions btn-action">
-      <%= f.button :submit, t("devise.invitations.new.submit_button") %>
     </div>
-  <% end %>
-</div>
+  </div>
 </div>
