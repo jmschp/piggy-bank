@@ -3,17 +3,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-items: center;
   background-color: $blue;
-  padding: 30px;
+  padding-top: 10px;
   text-align: center;
   color: $white;
-  height: 100vh;
+  flex-grow: 1;
 }
 
 .banner-home-title {
-  h1{
+  h1 {
     margin-bottom: 30px;
+  }
+  h3 {
+    padding: 0px 20px;
   }
 }
 
@@ -27,6 +29,6 @@
 
 .banner-home-text {
   margin-top: 40px;
-  width: 75%;
+  width: 80%;
   font-size: 15px;
 }
