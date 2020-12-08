@@ -11,11 +11,12 @@
 }
 
 .punishments {
-  max-height: 75vh;
+  max-height: 50vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-color: $yellow;
   padding: 10px;
 }

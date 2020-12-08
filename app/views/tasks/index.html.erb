@@ -18,13 +18,13 @@
 
     <div class="col-12 col-md-8">
       <% if @selected_son.present? || !current_user.admin? %>
-        <h2 class="task-type-title"><i class="fas fa-book"></i> na escola</h2>
+        <h2><i class="fas fa-book"></i> na escola</h2>
         <div class="tasks">
           <% @family_tasks_school.each do |task| %>
             <%= render("shared/card-task", task: task, css_class: "mb-2") %>
           <% end %>
         </div>
-        <h2 class="task-type-title mt-4"><i class="fas fa-home"></i> em casa</h2>
+        <h2 class="mt-4"><i class="fas fa-home"></i> em casa</h2>
         <div class="tasks">
           <% @family_tasks_home.each do |task| %>
             <%= render("shared/card-task", task: task, css_class: "mb-2") %>
