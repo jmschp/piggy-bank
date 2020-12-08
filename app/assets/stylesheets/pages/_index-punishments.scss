@@ -1,21 +1,22 @@
 .index-punishments {
-    background-color: $blue;
-    padding: 25px;
-    h1 {
-        color: $white;
-    }
-    h2 {
-        color: $white;
-    }
+  background-color: $blue;
+  padding: 25px;
+  height: 100vh;
+  h1 {
+    color: $white;
+  }
+  h2 {
+    color: $white;
+  }
 }
 
 .punishments {
-    height: 320px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
-    overflow: scroll;
-    background-color: $yellow;
-    padding: 10px;
+  height: 320px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  overflow: scroll;
+  background-color: $yellow;
+  padding: 10px;
 }

@@ -3,7 +3,7 @@
     <div class="col-12 col-md-4">
       <h2>metas de</h2>
       <% if current_user.admin? %>
-        <div class="card-family-members">
+        <div class="card-family-member">
           <% @user_family.each do |family_member| %>
             <%= link_to(goals_path(user_son: family_member)) do %>
               <%= render("shared/avatar", family_member: family_member) %>

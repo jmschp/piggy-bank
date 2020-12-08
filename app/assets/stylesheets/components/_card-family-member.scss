@@ -1,0 +1,17 @@
+.card-family-member {
+  background-color: $blue;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card-family-member-info {
+  width: fit-content;
+  text-align: center;
+  svg {
+    width: 30px;
+    fill: $yellow;
+  }
+}

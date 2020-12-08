@@ -1,8 +1,11 @@
 .index-tasks {
     background-color: $blue;
     padding: 25px;
+    height: 100vh;
+
     h1 {
         color: $white;
+        margin: 0px;
     }
     h2 {
         color: $white;
@@ -10,12 +13,12 @@
 }
 
 .tasks {
-    height: 300px;
+    max-height: 300px;
     overflow: scroll;
     background-color: $yellow;
     padding: 10px;
 }
 
-.task-type-title {
-    margin: 25px 0px;
-}
+// .task-type-title {
+//     margin: 25px 0px;
+// }

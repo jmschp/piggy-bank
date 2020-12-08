@@ -2,29 +2,26 @@
   <div class="row">
     <div class="col-12 col-md-4 mb-5">
       <h1>punições de</h1>
-      <% if current_user.admin? %>
-        <div class="card-family-members">
+      <div class="card-family-member">
+        <% if current_user.admin? %>
           <% @user_family.each do |family_member| %>
-            <%= link_to(punishments_path(user_son: family_member)) do %>
-              <%= render("shared/avatar", family_member: family_member) %>
-              <p><%= family_member.name %></p>
-            <% end %>
+            <%= render("shared/card-family-member", family_member: family_member) %>
           <% end %>
-        </div>
-        <%= link_to("Nova punição", new_punishment_path, class: "btn-action") %>
-      <% else %>
-        <%= render("shared/avatar", family_member: @user) %>
-        <p><%= @user.name %></p>
-      <% end %>
-    </div>
-    <div class="col-12 col-md-8">
-      <% if @selected_son.present? %>
-        <div class="punishments">
-          <% @son_punishments.each do |punishment| %>
-            <%= render("shared/card-punishment", punishment: punishment, css_class: "mb-4") %>
-          <% end %>
+        <% else %>
+          <%= render("shared/card-family-member", family_member: @user) %>
         <% end %>
       </div>
     </div>
+
+</div>
+<div class="col-12 col-md-8">
+  <% if @selected_son.present? %>
+    <div class="punishments">
+      <% @son_punishments.each do |punishment| %>
+        <%= render("shared/card-punishment", punishment: punishment, css_class: "mb-4") %>
+      <% end %>
+    <% end %>
   </div>
+</div>
+</div>
 </div>
