@@ -1,20 +1,22 @@
 <div class="container.fluid index-tasks">
   <div class="row">
-    <div class="col-12 col-md-4 mb-2">
+  
+    <div class="col-12 col-md-4 mb-4">
       <h1>tarefas de</h1>
 
       <div class="card-family-member">
         <% if current_user.admin? %>
           <% @user_family.each do |family_member| %>
-            <%= render("shared/card-family-member", family_member: family_member) %>
+            <%= render("shared/card-family-member", family_member: family_member, url_path: tasks_path(user_son: family_member)) %>
           <% end %>
         <% else %>
           <%= render("shared/card-family-member", family_member: @user) %>
         <% end %>
       </div>
-
+      <%= link_to("nova tarefa", new_task_path, class: "btn-action") %>
     </div>
-    <div class="col-12 col-md-8 mb-2">
+
+    <div class="col-12 col-md-8">
       <% if @selected_son.present? || !current_user.admin? %>
         <h2 class="task-type-title"><i class="fas fa-book"></i> na escola</h2>
         <div class="tasks">
@@ -22,7 +24,7 @@
             <%= render("shared/card-task", task: task, css_class: "mb-2") %>
           <% end %>
         </div>
-        <h2 class="task-type-title mt-2"><i class="fas fa-home"></i> em casa</h2>
+        <h2 class="task-type-title mt-4"><i class="fas fa-home"></i> em casa</h2>
         <div class="tasks">
           <% @family_tasks_home.each do |task| %>
             <%= render("shared/card-task", task: task, css_class: "mb-2") %>

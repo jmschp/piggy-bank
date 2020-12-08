@@ -1,10 +1,12 @@
 class PunishmentsController < ApplicationController
-
   def index
-    @selected_son = params[:user_son]
-    if @selected_son.present?
-      @son = User.find(@selected_son)
-      @son_punishments = Punishment.where(user_id: @selected_son).order(date: :desc)
+    if current_user.admin?
+      @selected_son = params[:user_son]
+
+      if @selected_son.present?
+        @son = User.find(@selected_son)
+        @son_punishments = Punishment.where(user_id: @selected_son).order(date: :desc)
+      end
     end
   end
 
@@ -23,13 +25,13 @@ class PunishmentsController < ApplicationController
 
         @punishment = Punishment.new(punishment_params)
         user = User.find(user_id)
-        user.update(points: user.points -= @punishment.points)
+        user.update(points: user.points += @punishment.points)
         @punishment.user = user
         @punishment.save
       end
       redirect_to punishments_path(user_son: @punishment.user_id)
     else
-      render :index
+      render :new
     end
   end
 

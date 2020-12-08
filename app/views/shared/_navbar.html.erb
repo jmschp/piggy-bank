@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= yield(:navbar_class) %>">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= yield(:css_class_navbar) %>">
   <%= link_to(root_path, class: "navbar-brand") do %>
     <%= image_tag("piggy-bank-logo.png") %>
     <% end %>
@@ -9,7 +9,7 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto <%= yield(:css_class_navbar_dropdown) %>">
       <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to("Home", root_path, class: "nav-link") %>

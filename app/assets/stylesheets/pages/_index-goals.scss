@@ -1,7 +1,7 @@
 .index-goals {
   background-color: $blue;
   padding: 25px;
-  height: 100vh;
+  flex-grow: 1;
   h1 {
     color: $white;
   }
@@ -12,7 +12,7 @@
 
 .goal-type-title {
   color: $white;
-  margin: 25px 0px;
+  // margin: 25px 0px;
   svg {
     height: 30px;
     fill: $white;
@@ -21,7 +21,7 @@
 }
 
 .goals {
-  height: 300px;
+  height: 200px;
   background-color: $white;
   padding: 10px;
   overflow: scroll;
