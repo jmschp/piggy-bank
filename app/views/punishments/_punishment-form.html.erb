@@ -1,8 +1,8 @@
 <%= simple_form_for(@punishment) do |f| %>
-  <%= f.input :user_id, as: :check_boxes, collection: @form_collection, label: "Seu kiddo", label_method: :second, value_method: :first, required: true %>
-  <%= f.input :title, required: true %>
-  <%= f.input :points, required: true, input_html: { max: '0', step: 'any' } %>
-  <%= f.input :date, required: true %>
+  <%= f.input :user_id, as: :check_boxes, collection: @form_collection, label: "seu kiddo", label_method: :second, value_method: :first, required: true %>
+  <%= f.input :title, label: 'punição', required: true %>
+  <%= f.input :points, label: 'pontos', required: true, input_html: { max: '0', step: 'any' } %>
+  <%= f.input :date, label: 'data', as: :string, required: true, input_html: {class: "datepicker"}%>
   <div class="d-flex justify-content-center">
     <%= f.submit "nova punição", class: "btn-action" %>
   </div>
