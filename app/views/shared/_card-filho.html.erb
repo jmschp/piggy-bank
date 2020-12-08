@@ -2,7 +2,7 @@
   <div class="card-filho-icons">
     <div class="card-filho-info">
       <%= render("shared/avatar", family_member: family_member) %>
-      <p><%= family_member.name %></p>
+      <p><%= family_member.name %> <br> <%= family_member.points %> <%= svg_tag("star.svg") %> </p>
     </div>
     <div class="card-filho-info">
       <%= link_to(tasks_path(user_son: family_member.id)) do %>
@@ -21,7 +21,7 @@
     <div class="card-filho-info">
       <%= link_to(goals_path(user_son: family_member.id)) do %>
         <%= image_tag("btn-target.svg") %>
-        <p>metas: <%= family_member.goals.where(finished: true).count %></p>
+        <p>metas: <%= family_member.goals.where(finished: false).count %></p>
       <% end %>
     </div>
     <div class="card-filho-info">

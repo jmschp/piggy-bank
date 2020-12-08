@@ -1,0 +1,28 @@
+.index-goals {
+  background-color: $blue;
+  padding: 25px;
+  height: 100vh;
+  h1 {
+    color: $white;
+  }
+  h2 {
+    color: $white;
+  }
+}
+
+.goal-type-title {
+  color: $white;
+  margin: 25px 0px;
+  svg {
+    height: 30px;
+    fill: $white;
+    margin-right: 5px;
+  }
+}
+
+.goals {
+  height: 300px;
+  background-color: $white;
+  padding: 10px;
+  overflow: scroll;
+}

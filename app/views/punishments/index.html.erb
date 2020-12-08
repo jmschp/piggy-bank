@@ -1,50 +1,27 @@
-<div class="container p-3" style="background-color: rgba(250,209,72,0.8);">
+<div class="container.fluid index-punishments">
   <div class="row">
-    <div class="col-12 col-md-4 border">
-      <h2>punições de</h2>
-      <div class="d-flex justify-content-around flex-wrap text-center border">
-
-        <% @user_family.each do |family_member| %>
-          <%= link_to(punishments_path(user_son: family_member)) do %>
-            <% if family_member.photo.present? %>
-              <%= cl_image_tag(family_member.photo.key, class: "avatar-large", alt: "avatar-large") %>
-            <% else %>
-              <%= image_tag("piggy-green.svg", class: "avatar-large", alt: "avatar-large") %>
-            <% end %>
-            <p><%= family_member.name %><br>
-              Pontos acumulados: <%= family_member.points %><br>
-              Punições aplicadas: <%= family_member.punishments.count %>
-            </p>
+    <div class="col-12 col-md-4 mb-5">
+      <h1>punições de</h1>
+      <div class="card-family-member">
+        <% if current_user.admin? %>
+          <% @user_family.each do |family_member| %>
+            <%= render("shared/card-family-member", family_member: family_member) %>
           <% end %>
+        <% else %>
+          <%= render("shared/card-family-member", family_member: @user) %>
         <% end %>
-        <div class="border">
-          <%= simple_form_for(@punishment) do |f| %>
-            <%= f.input :user_id, as: :check_boxes, collection: @user_family, required: true, input_html: { include_empty: false } %>
-            <%= f.input :title %>
-            <%= f.input :points %>
-            <%= f.input :date %>
-            <%= f.submit %>
-          <% end %>
-        </div>
       </div>
     </div>
 
-    <div class="col-12 col-md-8 d-flex flex-column justify-content-around border">
-      <% if @selected_son.present? %>
-        <% @son_punishments.each do |punishment| %>
-
-          <div class="punishments-card mb-2">
-            <div class="punishments-card-date">
-             <i class="fas fa-balance-scale"></i>
-             <p><%= punishment.date.month %><br><%= punishment.date.year %></p>
-            </div>
-            <div class="punishments-card-infos">
-              <p><%= punishment.title %></p>
-              <p>Penalização aplicada: <%= punishment.points %></p>
-            </div>
-          </div>
-
-        <% end %>
+</div>
+<div class="col-12 col-md-8">
+  <% if @selected_son.present? %>
+    <div class="punishments">
+      <% @son_punishments.each do |punishment| %>
+        <%= render("shared/card-punishment", punishment: punishment, css_class: "mb-4") %>
       <% end %>
-    </div>
+    <% end %>
   </div>
+</div>
+</div>
+</div>

@@ -1,9 +1,9 @@
 .punishments-card {
   background-color: $white;
-  width: 550px;
+  width: 400px;
   border-left: 5px solid $green;
   border-radius: 5px;
-  padding: 20px 0px 20px 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
 }
@@ -11,13 +11,28 @@
 .punishments-card-date {
   text-align: center;
   margin-right: 15px;
+  background-color: $red;
+  padding: 20px 10px;
   i {
-    font-size: 40px;
+    font-size: 30px;
     color: $green;
   }
   p {
-    margin-top: 5px;
-    background-color: $red;
-    border-radius: 15px;
+    margin: 5px 0px 0px 0px;
+    color: $white;
   }
+}
+
+.punishments-card-infos {
+  h4 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.punishment-star {
+    display: inline;
 }

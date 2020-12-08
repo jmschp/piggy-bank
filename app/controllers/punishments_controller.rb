@@ -1,13 +1,15 @@
 class PunishmentsController < ApplicationController
-  before_action :set_user_family, only: %i[index create]
 
   def index
     @selected_son = params[:user_son]
-    @punishment = Punishment.new
     if @selected_son.present?
       @son = User.find(@selected_son)
-      @son_punishments = Punishment.where(user_id: @selected_son)
+      @son_punishments = Punishment.where(user_id: @selected_son).order(date: :desc)
     end
+  end
+
+  def new
+    @punishment = Punishment.new
   end
 
   def create
@@ -35,10 +37,5 @@ class PunishmentsController < ApplicationController
 
   def punishment_params
     params.require(:punishment).permit(:title, :points, :date)
-  end
-
-  def set_user_family
-    @user = current_user
-    @user_family = User.where(family_id: @user.family).where.not(id: @user.id)
   end
 end

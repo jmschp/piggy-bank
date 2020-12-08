@@ -1,5 +1,14 @@
 // Import page-specific CSS files here.
 @import "home";
+
 @import "index-family";
-@import "index-metas";
 @import "index-tasks";
+@import "index-goals";
+@import "index-punishments";
+
+@import "new-goal";
+@import "new-task";
+@import "new-punishment";
+
+@import "new-devise-invitation";
+@import "new-devise-session";

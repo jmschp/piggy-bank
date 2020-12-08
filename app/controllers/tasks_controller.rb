@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  before_action :set_user_family, only: %i[index new]
 
   def index
     if current_user.admin?
@@ -50,14 +49,7 @@ class TasksController < ApplicationController
 
   private
 
-  def set_user_family
-    @user = current_user
-    @user_family = User.where(family_id: @user.family).where.not(id: @user.id)
-  end
-
   def task_params
     params.require(:task).permit(:title, :deadline, :points, :home)
   end
 end
-
-#comment

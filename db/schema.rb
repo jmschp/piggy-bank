@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_12_06_212446) do
   create_table "goals", force: :cascade do |t|
     t.string "title", null: false
     t.integer "points", default: 0, null: false
+    t.integer "total_points", default: 0, null: false
     t.boolean "finished", default: false, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

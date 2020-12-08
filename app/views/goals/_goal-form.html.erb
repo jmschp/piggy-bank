@@ -1,0 +1,8 @@
+<%= simple_form_for(goal) do |f| %>
+  <%= f.input :user_id, as: :check_boxes, collection: @form_collection, label: "Seu kiddo", label_method: :second, value_method: :first %>
+  <%= f.input :title %>
+  <%= f.input :total_points %>
+  <div class="d-flex justify-content-center">
+    <%= f.submit "nova meta", class: "btn-action" %>
+  </div>
+<% end %>

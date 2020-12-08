@@ -1,34 +1,33 @@
-<div class="container.fluid family-tasks">
+<div class="container.fluid index-tasks">
   <div class="row">
-    <div class="col-12 col-md-4">
-      <h3>tarefas de</h3>
-      <% if current_user.admin? %>
-        <div class="family-members">
+    <div class="col-12 col-md-4 mb-2">
+      <h1>tarefas de</h1>
+
+      <div class="card-family-member">
+        <% if current_user.admin? %>
           <% @user_family.each do |family_member| %>
-            <%= link_to(tasks_path(user_son: family_member)) do %>
-              <%= render("shared/avatar", family_member: family_member) %>
-              <p><%= family_member.name %></p>
-            <% end %>
+            <%= render("shared/card-family-member", family_member: family_member) %>
+          <% end %>
+        <% else %>
+          <%= render("shared/card-family-member", family_member: @user) %>
+        <% end %>
+      </div>
+
+    </div>
+    <div class="col-12 col-md-8 mb-2">
+      <% if @selected_son.present? || !current_user.admin? %>
+        <h2 class="task-type-title"><i class="fas fa-book"></i> na escola</h2>
+        <div class="tasks">
+          <% @family_tasks_school.each do |task| %>
+            <%= render("shared/card-task", task: task, css_class: "mb-2") %>
           <% end %>
         </div>
-        <%= link_to("Nova tarefa", new_task_path, class: "btn-action") %>
-      <% else %>
-        <%= render("shared/avatar", family_member: @user) %>
-        <p><%= @user.name %></p>
-      <% end %>
-    </div>
-    <div class="col-12 col-md-8">
-      <% if @selected_son.present? || !current_user.admin? %>
-        <h4><i class="fas fa-book"></i> na escola</h4>
-
-        <% @family_tasks_school.each do |task| %>
-          <%= render("shared/card-task", task: task, css_class: "mb-2") %>
-        <% end %>
-
-        <h4><i class="fas fa-home"></i> em casa</h4>
-        <% @family_tasks_home.each do |task| %>
-          <%= render("shared/card-task", task: task, css_class: "mb-2") %>
-        <% end %>
+        <h2 class="task-type-title mt-2"><i class="fas fa-home"></i> em casa</h2>
+        <div class="tasks">
+          <% @family_tasks_home.each do |task| %>
+            <%= render("shared/card-task", task: task, css_class: "mb-2") %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
