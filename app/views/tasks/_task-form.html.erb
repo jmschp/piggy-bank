@@ -1,12 +1,18 @@
  <%= simple_form_for(@task) do |f| %>
-  <%= f.input :user_id, as: :check_boxes, collection: @form_collection, label: "seu kiddo", input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item', label_method: :second, value_method: :first %>
-
+  <%= f.input :user_id,
+              as: :check_boxes,
+              collection: @form_collection,
+              label: "seu kiddo",
+              input_html: { class: "tag-selector" },
+              item_wrapper_class: 'tag-item',
+              label_method: :second,
+              value_method: :first %>
   <%= f.input :title, label:'tarefa' %>
   <div class="d-flex justify-content-left">
-    escola
-    <%= f.input :home, label:'casa', input_html: { class: "toggle" }  %>
+    casa
+    <%= f.input :home, label: 'escola', input_html: { class: "toggle" }  %>
   </div>
-  <%= f.input :deadline, label:'prazo', as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :deadline, label: 'prazo', as: :string, required: false, input_html: {class: "datepicker"} %>
   <%= f.input :points, label: 'estrelas', collection: TASKS_POINTS %>
   <div class="d-flex justify-content-center">
     <%= f.submit 'adicionar', class:'btn-action' %>

@@ -7,8 +7,13 @@
   position: absolute;
   width: 100%;
   background: transparent;
-  box-shadow: none; 
+  box-shadow: none;
 }
+
+.navbar-home-dropdown {
+  background-color: $blue;
+}
+
 
 .nav-link {
   color: $white !important;

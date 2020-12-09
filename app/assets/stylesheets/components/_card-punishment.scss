@@ -31,8 +31,9 @@
   p {
     margin: 0;
   }
+  svg {
+    width: 30px;
+    fill: $yellow;
+  }
 }
 
-.punishment-star {
-    display: inline;
-}

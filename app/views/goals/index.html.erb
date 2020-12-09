@@ -1,22 +1,20 @@
 <div class="container.fluid index-goals">
   <div class="row">
-    <div class="col-12 col-md-4">
-      <h2>metas de</h2>
-      <% if current_user.admin? %>
-        <div class="card-family-member">
+    <div class="col-12 col-md-4 mb-4">
+      <h1>metas de</h1>
+
+      <div class="card-family-member">
+        <% if current_user.admin? %>
           <% @user_family.each do |family_member| %>
-            <%= link_to(goals_path(user_son: family_member)) do %>
-              <%= render("shared/avatar", family_member: family_member) %>
-              <p><%= family_member.name %></p>
-            <% end %>
+            <%= render("shared/card-family-member", family_member: family_member, url_path:goals_path(user_son: family_member)) %>
           <% end %>
-        </div>
-        <%= link_to("Nova meta", new_goal_path, class: "btn-action") %>
-      <% else %>
-        <%= render("shared/avatar", family_member: @user) %>
-        <p><%= @user.name %></p>
-      <% end %>
+        <% else %>
+          <%= render("shared/card-family-member", family_member: @user) %>
+        <% end %>
+      </div>
+      <%= link_to("nova meta", new_goal_path, class: "btn-action") %>
     </div>
+
     <div class="col-12 col-md-8">
       <% if @selected_son.present? %>
         <h2 class="goal-type-title"> <%= svg_tag('target.svg') %>metas em andamento</h2>
@@ -25,7 +23,7 @@
             <%= render("shared/card-goal", goal: goal, css_class: "mb-3") %>
           <% end %>
         </div>
-        <h2 class="goal-type-title"> <%= svg_tag('target-arrow.svg') %>metas atingidas</h2>
+        <h2 class="goal-type-title mt-4"> <%= svg_tag('target-arrow.svg') %>metas atingidas</h2>
         <div class="goals">
           <% @son_goals_finished.each do |goal| %>
             <%= render("shared/card-goal", goal: goal, css_class: "mb-3") %>

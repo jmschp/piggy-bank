@@ -1,13 +1,17 @@
 <div class="card-goal <%= css_class %>">
-  <div class="progress card-goal-progress">
-    <span><h5><%= goal.title %></h5></span>
-    <div class="progress-bar <%= goal.finished ? 'bg-success' : 'bg-warning' %> card-goal-progress" role="progressbar" style="width:
+  <%= link_to(add_points_path(goal.id)) do %>
+    <div class="progress card-goal-progress">
+      <span>
+        <h5><%= goal.title %></h5>
+      </span>
+      <div class="progress-bar <%= goal.finished ? 'bg-success' : 'bg-warning' %> card-goal-progress" role="progressbar" style="width:
         <%= ((goal.points.to_f / goal.total_points.to_f) * 100).to_i %>%" aria-valuenow="
         <%= ((goal.points.to_f / goal.total_points.to_f) * 100).to_i %>" aria-valuemin="0" aria-valuemax="100">
         <h5><%= goal.title %></h5>
+      </div>
     </div>
-  </div>
+  <% end %>
   <div class="card-goal-infos">
-    <span>juntou <%= goal.points %> <%= svg_tag("star.svg") %></span> <span><%= link_to("adicionar pontos", add_points_path(goal.id)) %></span><span>faltam <%= goal.total_points - goal.points %> <%= svg_tag("star.svg") %></span>
+    <span>juntou <%= goal.points %> <%= svg_tag("star.svg") %></span><span>faltam <%= goal.total_points - goal.points %> <%= svg_tag("star.svg") %></span>
   </div>
 </div>

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   add_flash_types :success
-  before_action :set_user_family, only: %i[index new], if: :selected_controller?
+  before_action :set_user_family, only: %i[index new create], if: :selected_controller?
  
   private
 

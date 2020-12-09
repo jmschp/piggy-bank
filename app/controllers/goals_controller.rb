@@ -30,7 +30,7 @@ class GoalsController < ApplicationController
       end
       redirect_to goals_path(user_son: @goal.user_id)
     else
-      render :new, alert: "Meta inválida"
+      render :new
     end
   end
 
