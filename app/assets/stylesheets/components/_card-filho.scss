@@ -12,6 +12,7 @@
   background-color: $white;
   border: 5px solid $yellow;
   svg {
+    transition: 1s;
     fill: $yellow;
   }
 }

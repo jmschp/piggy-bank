@@ -1,17 +1,31 @@
 <div class="container.fluid show-chatroom">
-  <div class="row">
-    <div class="col-12 ">
+  <h1><%= @chatroom.name %></h1>
 
-      <h3 class=""><%= @chatroom.name %></h3>
-      <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-        <% @chatroom.messages.each do |message| %>
-          <%= render("messages/message", message: message) %>
-        <% end %>
-      </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 message-layout">
+    
+
+        <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+          <% @chatroom.messages.each do |message| %>
+              <%= render("messages/message", message: message) %>
+          <% end %>
+        </div>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<div class="container.fluid show-chatroom-message-form">
+  <div class="row justify-content-center">
+
+    <div class="col-12 col-md-8 message-form-layout">
       <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
         <%= f.input :content, label: false, placeholder: "escreva sua mensagem na #{@chatroom.name}" %>
       <% end %>
-
     </div>
+    
   </div>
 </div>

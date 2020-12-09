@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
 
   def set_user_family
     @user = current_user
-    @user_family = User.where(family_id: @user.family).where.not(id: @user.id)
-    @form_collection = @user_family.pluck(:id, :name)
+    @user_family = User.where(family_id: @user.family).where.not(id: @user.id).order(:name)
+    @form_collection = @user_family.pluck(:id, :name).sort
   end
 
   def configure_permitted_parameters

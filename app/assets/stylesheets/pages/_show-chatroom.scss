@@ -1,5 +1,50 @@
 .show-chatroom {
-    background-color: $blue;
-    padding: 25px;
-    flex-grow: 1;
+  background-color: $purple;
+  padding: 25px;
+  flex-grow: 1;
+  h1 {
+    color: $white;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.message-layout {
+  background-color: $purple;
+  max-height: 50vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.show-chatroom-message-form {
+  background-color: $purple;
+  padding: 25px;
+}
+
+.message-form-layout {
+  background-color: $purple;
+}
+
+.message-container {
+  background-color: $white;
+  padding: 10px;
+  margin: 20px 0px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.3);
+  p {
+    margin: 0px;
+  }
+}
+
+.current_user_true {
+  width: 75%;
+  margin-left: auto;
+  word-wrap: break-word;
+  background-color: lightgreen;
+}
+
+.current_user_false {
+  width: 75%;
+  margin-right: auto;
+  background-color: lightyellow;
 }
