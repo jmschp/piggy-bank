@@ -61,4 +61,10 @@ class GoalsController < ApplicationController
   def goal_params
     params.require(:goal).permit(:title, :total_points)
   end
+
+  def set_user_family
+    @user = current_user
+    @user_family = User.where(family_id: @user.family).where.not(id: @user.id)
+    @form_collection = @user_family.pluck(:id, :name)
+  end
 end

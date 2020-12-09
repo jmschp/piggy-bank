@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def selected_controller?
-    controller_name.match(/(families|tasks|goals|punishments)/)
+    controller_name.match?(/(families|tasks|goals|punishments)/)
   end
 
   def set_user_family
