@@ -11,13 +11,13 @@ class ApplicationController < ActionController::Base
   private
 
   def selected_controller?
-    controller_name.match(/(families|tasks|goals|punishments)/)
+    controller_name.match?(/(families|tasks|goals|punishments)/)
   end
 
   def set_user_family
     @user = current_user
-    @user_family = User.where(family_id: @user.family).where.not(id: @user.id)
-    @form_collection = @user_family.pluck(:id, :name)
+    @user_family = User.where(family_id: @user.family).where.not(id: @user.id).order(:name)
+    @form_collection = @user_family.pluck(:id, :name).sort
   end
 
   def configure_permitted_parameters

@@ -31,7 +31,7 @@ class PunishmentsController < ApplicationController
         @punishment.user = user
         @punishment.save
       end
-      redirect_to punishments_path(user_son: @punishment.user_id)
+      redirect_to punishments_path(user_son: @punishment.user_id), notice: "Punição criada com sucesso"
     else
       render :new
     end
