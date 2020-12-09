@@ -15,9 +15,9 @@
 
 .family-cards {
   max-height: 75vh;
-   overflow-y: scroll;
+  overflow-y: scroll;
   overflow-x: hidden;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
