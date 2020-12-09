@@ -1,3 +1,4 @@
+<% content_for :meta_title, "Chat da família #{@chatroom.family.name}" %>
 <div class="container.fluid show-chatroom">
   <h1><%= @chatroom.name %></h1>
 
@@ -10,10 +11,7 @@
               <%= render("messages/message", message: message) %>
           <% end %>
         </div>
-
-
-
-
+      
     </div>
   </div>
 </div>

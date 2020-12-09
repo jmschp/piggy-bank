@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   add_flash_types :success
   before_action :set_user_family, only: %i[index new create], if: :selected_controller?
 
+  def default_url_options
+  { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   private
 
   def selected_controller?
