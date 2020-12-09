@@ -1,13 +1,12 @@
  <%= simple_form_for(@task) do |f| %>
   <%= f.input :user_id,
-              label:'selecione seus kiddos',
-              collection: @form_collection,
               as: :check_boxes,
+              collection: @form_collection,
+              label: "seu kiddo",
               input_html: { class: "tag-selector" },
               item_wrapper_class: 'tag-item',
               label_method: :second,
               value_method: :first %>
-
   <%= f.input :title, label:'tarefa' %>
   <div class="d-flex justify-content-left">
     casa
