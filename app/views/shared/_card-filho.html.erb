@@ -31,7 +31,7 @@
       <% end %>
     </div>
     <div class="card-filho-info">
-      <%= link_to(goals_path(user_son: family_member.id)) do %>
+      <%= link_to(punishments_path(user_son: family_member.id)) do %>
         <%= image_tag("btn-justice.svg") %>
         <p><%= family_member.punishments.all.count %> punições</p>
       <% end %>

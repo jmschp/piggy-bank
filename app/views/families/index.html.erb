@@ -1,6 +1,6 @@
 <div class="container-fluid family-index">
   <div class="row">
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-4 mb-4">
       <div class="family-info">
         <%= render("shared/avatar", family_member: @user) %>
         <h2><%= @user.name %></h2>
@@ -10,22 +10,19 @@
             <%= image_tag("add-kid.svg") %>
           <% end %>
         <% end %>
-        <%= link_to("family chatroom", chatroom_path(@family_chatroom), class: "btn-action") %>
-        </div>
       </div>
+      <%= link_to("family chatroom", chatroom_path(@family_chatroom), class: "btn-action") %>
     </div>
     <div class="col-12 col-md-8">
-      <% if @user.admin? %>
-        <div class="family-cards">
+      <div class="family-cards">
+        <% if @user.admin? %>
           <% @user_family.each do |family_member| %>
             <%= render('shared/card-filho', family_member: family_member, css_class: "m-2") %>
           <% end %>
-        </div>
-      <% else %>
-        <div class="family-cards">
+        <% else %>
           <%= render('shared/card-filho', family_member: @user, css_class: "m-2") %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

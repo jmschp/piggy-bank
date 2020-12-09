@@ -1,21 +1,19 @@
 <div class="container.fluid index-tasks">
   <div class="row">
-  
-    <div class="col-12 col-md-4 mb-4">
-      <h1>tarefas de</h1>
 
+    <div class="col-12 col-md-4 mb-4">
+    
+      <h1>tarefas de</h1>
       <div class="card-family-member">
         <% if @user.admin? %>
           <% @user_family.each do |family_member| %>
             <%= render("shared/card-family-member", family_member: family_member, url_path: tasks_path(user_son: family_member)) %>
           <% end %>
         <% else %>
-          <%= render("shared/avatar", family_member: @user) %>
-          <br>
-          <%= @user.name %>: <%= @user.points %> <%= svg_tag("star.svg") %>
+          <%= render("shared/card-family-member", family_member: @user, url_path: tasks_path(user_son: @user)) %>
         <% end %>
       </div>
-      <%= link_to("nova tarefa", new_task_path, class: "btn-action") %>
+          <%= link_to("nova tarefa", new_task_path, class: "btn-action") if @user.admin? %>
     </div>
 
     <div class="col-12 col-md-8">
@@ -34,5 +32,6 @@
         </div>
       <% end %>
     </div>
+
   </div>
 </div>

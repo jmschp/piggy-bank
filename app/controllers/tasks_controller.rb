@@ -4,12 +4,12 @@ class TasksController < ApplicationController
     if @user.admin?
       @selected_son = params[:user_son]
       if @selected_son.present?
-        @family_tasks_school = Task.where(user_id: @selected_son, home: true, validated: false).order(:deadline)
-        @family_tasks_home = Task.where(user_id: @selected_son, home: false, validated: false).order(:deadline)
+        @family_tasks_school = Task.where(user_id: @selected_son, home: true, validated: false).order(:deadline, :finished)
+        @family_tasks_home = Task.where(user_id: @selected_son, home: false, validated: false).order(:deadline, :finished)
       end
     else
-      @family_tasks_school = Task.where(user_id: @user.id, home: true, validated: false).order(:deadline)
-      @family_tasks_home = Task.where(user_id: @user.id, home: false, validated: false).order(:deadline)
+      @family_tasks_school = Task.where(user_id: @user.id, home: true, validated: false).order(:deadline, :finished)
+      @family_tasks_home = Task.where(user_id: @user.id, home: false, validated: false).order(:deadline, :finished)
     end
   end
 
@@ -38,11 +38,16 @@ class TasksController < ApplicationController
   end
 
   def validate
-    @task = Task.find(params[:id])
-    @task.update(validated: true)
-    user = User.find(@task.user_id)
-    user.update(points: user.points += @task.points)
-    redirect_to tasks_path(user_son: @task.user_id)
+    if current_user.admin?
+      @task = Task.find(params[:id])
+      @task.update(validated: true)
+      user = User.find(@task.user_id)
+      user.update(points: user.points += @task.points)
+    else
+      @task = Task.find(params[:id])
+      @task.update(finished: true)
+    end
+      redirect_to tasks_path(user_son: @task.user_id)
   end
 
   private

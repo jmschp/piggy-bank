@@ -1,12 +1,14 @@
 class PunishmentsController < ApplicationController
   def index
-    if current_user.admin?
+    if @user.admin?
       @selected_son = params[:user_son]
 
       if @selected_son.present?
         @son = User.find(@selected_son)
         @son_punishments = Punishment.where(user_id: @selected_son).order(date: :desc)
       end
+    else
+      @son_punishments = Punishment.where(user_id: @user).order(date: :desc)
     end
   end
 

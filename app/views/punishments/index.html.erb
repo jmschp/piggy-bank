@@ -1,20 +1,24 @@
 <div class="container.fluid index-punishments">
   <div class="row">
+
     <div class="col-12 col-md-4 mb-4">
       <h1>punições de</h1>
+
       <div class="card-family-member">
-        <% if current_user.admin? %>
+        <% if @user.admin? %>
           <% @user_family.each do |family_member| %>
             <%= render("shared/card-family-member", family_member: family_member, url_path: punishments_path(user_son: family_member)) %>
           <% end %>
         <% else %>
-          <%= render("shared/card-family-member", family_member: @user) %>
+          <%= render("shared/card-family-member", family_member: @user, url_path: punishments_path(user_son: @user)) %>
         <% end %>
       </div>
-      <%= link_to("nova punição", new_punishment_path, class: "btn-action") %>
+      <%= link_to("nova punição", new_punishment_path, class: "btn-action") if @user.admin? %>
+
     </div>
+
     <div class="col-12 col-md-8">
-      <% if @selected_son.present? %>
+      <% if @selected_son.present? || !current_user.admin? %>
         <div class="punishments">
           <% @son_punishments.each do |punishment| %>
             <%= render("shared/card-punishment", punishment: punishment, css_class: "mb-4") %>
@@ -22,5 +26,6 @@
         </div>
       <% end %>
     </div>
+
   </div>
 </div>
