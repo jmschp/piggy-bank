@@ -26,25 +26,23 @@
 }
 
 .message-container {
-  background-color: $white;
   padding: 10px;
   margin: 20px 0px;
   border-radius: 10px;
   box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.3);
+  width: 75%;
   p {
     margin: 0px;
   }
 }
 
 .current_user_true {
-  width: 75%;
   margin-left: auto;
   word-wrap: break-word;
   background-color: lightgreen;
 }
 
 .current_user_false {
-  width: 75%;
   margin-right: auto;
   background-color: lightyellow;
 }
