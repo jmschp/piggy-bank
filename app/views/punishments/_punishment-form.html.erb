@@ -1,5 +1,5 @@
 <%= simple_form_for(@punishment) do |f| %>
-  <%= f.input :user_id, as: :check_boxes, collection: @form_collection, label: "seu kiddo", label_method: :second, value_method: :first %>
+  <%= f.input :user_id, as: :check_boxes, collection: @form_collection, label: "seu kiddo", input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item', label_method: :second, value_method: :first %>
   <%= f.input :title, label:'punição' %>
   <%= f.input :points, label: 'pontos' %>
   <%= f.input :date, label:'data', as: :string, required: false, input_html: {class: "datepicker"}%>
