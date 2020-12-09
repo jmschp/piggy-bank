@@ -11,10 +11,26 @@
 .card-goal-progress {
   height: 50px;
   position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   span {
     position: absolute;
     top: 27%;
   }
+  &:hover {
+    transition: 0.5s;
+    height: 60px;
+    color: $yellow;
+  }
+  &:active {
+    color: $yellow;
+
+    transition: 0.5s;
+    height: 80px;
+  }
+}
+
+.card-goal-progress-content {
+  z-index: 2;
 }
 
 .card-goal-infos {

@@ -3,11 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   add_flash_types :success
   before_action :set_user_family, only: %i[index new create], if: :selected_controller?
- 
+
   private
 
   def selected_controller?
-    controller_name.match(/(tasks|goals|punishments)/)
+    controller_name.match(/(families|tasks|goals|punishments)/)
   end
 
   def set_user_family

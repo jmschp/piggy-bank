@@ -4,19 +4,19 @@
       <h1>metas de</h1>
 
       <div class="card-family-member">
-        <% if current_user.admin? %>
+        <% if @user.admin? %>
           <% @user_family.each do |family_member| %>
-            <%= render("shared/card-family-member", family_member: family_member, url_path:goals_path(user_son: family_member)) %>
+            <%= render("shared/card-family-member", family_member: family_member, url_path: goals_path(user_son: family_member)) %>
           <% end %>
         <% else %>
-          <%= render("shared/card-family-member", family_member: @user) %>
+          <%= render("shared/card-family-member", family_member: @user, url_path: goals_path(user_son: @user)) %>
         <% end %>
       </div>
-      <%= link_to("nova meta", new_goal_path, class: "btn-action") %>
+      <%= link_to("nova meta", new_goal_path, class: "btn-action") if @user.admin? %>
     </div>
 
     <div class="col-12 col-md-8">
-      <% if @selected_son.present? %>
+      <% if @selected_son.present? || !current_user.admin? %>
         <h2 class="goal-type-title"> <%= svg_tag('target.svg') %>metas em andamento</h2>
         <div class="goals">
           <% @son_goals.each do |goal| %>

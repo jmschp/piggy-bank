@@ -1,12 +1,16 @@
 class GoalsController < ApplicationController
-
   def index
-    @selected_son = params[:user_son]
+    if @user.admin?
+      @selected_son = params[:user_son]
 
-    if @selected_son.present?
-      @son = User.find(@selected_son)
-      @son_goals = Goal.where(user_id: @selected_son, finished: false)
-      @son_goals_finished = Goal.where(user_id: @selected_son, finished: true)
+      if @selected_son.present?
+        @son = User.find(@selected_son)
+        @son_goals = Goal.where(user_id: @selected_son, finished: false)
+        @son_goals_finished = Goal.where(user_id: @selected_son, finished: true)
+      end
+    else
+      @son_goals = Goal.where(user_id: @user, finished: false)
+      @son_goals_finished = Goal.where(user_id: @user, finished: true)
     end
   end
 

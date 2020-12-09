@@ -8,8 +8,12 @@
 }
 
 .card-filho:hover {
+  transition: 1s;
   background-color: $white;
   border: 5px solid $yellow;
+  svg {
+    fill: $yellow;
+  }
 }
 
 .card-filho-icons {
@@ -23,7 +27,7 @@
   flex-direction: column;
   text-align: center;
   svg {
-    fill: $yellow;
+    fill: $white;
     width: 30px;
 
   }
