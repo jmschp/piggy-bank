@@ -1,7 +1,14 @@
 <%= simple_form_for(goal) do |f| %>
-  <%= f.input :user_id, as: :check_boxes, collection: @form_collection, label: "seu kiddo", input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item', label_method: :second, value_method: :first %>
+  <%= f.input :user_id, as: :check_boxes,
+              collection: @form_collection,
+              label: "seu kiddo",
+              input_html: { class: "tag-selector" },
+              item_wrapper_class: 'tag-item',
+              label_method: :second,
+              value_method: :first %>
+
   <%= f.input :title , label:'meta a alcançar', placeholder: "nova bike?" %>
-  <%= f.input :points, label: 'valor em pontos' %>
+  <%= f.input :total_points, label: 'valor em pontos' %>
   <div class="d-flex justify-content-center">
     <%= f.submit "nova meta", class: "btn-action" %>
   </div>
