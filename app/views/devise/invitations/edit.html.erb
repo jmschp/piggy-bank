@@ -1,15 +1,22 @@
-<h2><%= t "devise.invitations.edit.header" %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.hidden_field :invitation_token %>
-
-  <div class="form-inputs">
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
+<div class="container.fluid new-devise-invitation">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6">
+      <div class="form-layout">
+        <div class="form-layout-content">
+          <h1>Defina a sua senha</h1>
+          <%= simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.error_notification %>
+            <%= f.hidden_field :invitation_token %>
+            <div class="form-inputs">
+              <%= f.input :password %>
+              <%= f.input :password_confirmation %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, t("devise.invitations.edit.submit_button") %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, t("devise.invitations.edit.submit_button") %>
-  </div>
-<% end %>
+</div>
