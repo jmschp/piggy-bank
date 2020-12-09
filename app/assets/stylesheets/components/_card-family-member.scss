@@ -1,6 +1,5 @@
 .card-family-member {
   background-color: $blue;
-  padding: 20px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -8,8 +7,8 @@
 }
 
 .card-family-member-info {
-  margin: 10px;
-  width: fit-content;
+  margin: 5px;
+  width: 125px;
   text-align: center;
   svg {
     width: 30px;
