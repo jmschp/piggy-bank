@@ -57,7 +57,7 @@ class TasksController < ApplicationController
       @message = Message.create(
         content: message_body,
         chatroom_id: @task.user.family.chatroom.id,
-        user_id: user.user_id
+        user_id: user.id
       )
     end
     ChatroomChannel.broadcast_to(
