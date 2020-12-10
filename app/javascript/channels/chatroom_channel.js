@@ -28,10 +28,12 @@ const initChatroomCable = () => {
 
 const chatBtnDown = () => {
   const messagesContainer = document.getElementById('messages');
-  const btn = document.getElementById('btn-to-bottom');
-  btn.addEventListener('click', () => {
-    messagesContainer.scrollIntoView(false);
-  })
+  if (messagesContainer) {
+    const btn = document.getElementById('btn-to-bottom');
+    btn.addEventListener('click', () => {
+      messagesContainer.scrollIntoView(false);
+    })
+  }
 }
 
 export { initChatroomCable, chatBtnDown };
