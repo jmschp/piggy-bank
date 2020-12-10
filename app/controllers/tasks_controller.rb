@@ -71,12 +71,12 @@ class TasksController < ApplicationController
     params.require(:task).permit(:title, :deadline, :points, :home)
   end
 
-  def twilio_client(message_body)
+  def twilio_client(message_body, user_phone)
     @client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
     message = @client.messages.create(
       body: message_body,
       from: 'whatsapp:+14155238886',
-      to: 'whatsapp:+351919018335'
+      to: "whatsapp:#{user_phone}"
     )
 
     puts message.sid

@@ -4,7 +4,7 @@ class Family < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 150 }
 
-  # after_commit :set_family_leader, only: :create
+  after_commit :set_family_leader, only: :create
   after_commit :create_family_chatroom, only: :create
 
   private
