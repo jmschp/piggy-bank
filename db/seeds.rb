@@ -14,6 +14,7 @@ families.each do |family|
   new_fam = Family.create!(name: family)
   User.create!(
     name: "#{family} Buscapé",
+    phone: 0,
     email: "#{family}@piggy.com",
     password: "123123",
     admin: true,
@@ -26,6 +27,7 @@ filhos = []
   filho = User.create!(
     name: Faker::Name.first_name,
     email: Faker::Internet.email,
+    phone: 0,
     password: "123123",
     admin: false,
     points: rand(50..100),

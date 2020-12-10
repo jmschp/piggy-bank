@@ -10,8 +10,9 @@
               <div class="form-inputs">
                 <%= f.input field, required: true %>
               </div>
-            <% end -%>
-            <%= f.input :name, label: 'Nome', required: true %>
+            <% end %>
+            <%= f.input :name, label: 'nome', required: true %>
+            <%= f.input :phone, label: 'whatsapp', required: true %>
             <%= f.input :family_id, as: :hidden, input_html: { value: current_user.family_id } %>
             <div class="form-actions btn-action">
               <%= f.button :submit, "Enviar convite" %>

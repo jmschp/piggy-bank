@@ -22,15 +22,15 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, { family_attributes: [:name] }])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :phone, { family_attributes: [:name] }])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :phone])
 
     # For additional in app/views/devise/invitations/new.html.erb
-    devise_parameter_sanitizer.permit(:invite, keys: %i[name family_id])
+    devise_parameter_sanitizer.permit(:invite, keys: [:name, :phone, :family_id])
 
     # For additional in app/views/devise/invitations/edit.html.erb
-    devise_parameter_sanitizer.permit(:accept_invitation, keys: %i[name family_id])
+    devise_parameter_sanitizer.permit(:accept_invitation, keys: [:name, :phone, :family_id])
   end
 end

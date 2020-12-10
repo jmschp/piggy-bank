@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 2020_12_06_212446) do
     t.string "name", null: false
     t.boolean "admin", default: false, null: false
     t.integer "points", default: 0, null: false
+    t.string "phone", null: false
     t.bigint "family_id"
     t.string "invitation_token"
     t.datetime "invitation_created_at"

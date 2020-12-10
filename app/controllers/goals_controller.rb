@@ -5,11 +5,11 @@ class GoalsController < ApplicationController
 
       if @selected_son.present?
         @son = User.find(@selected_son)
-        @son_goals = Goal.where(user_id: @selected_son, finished: false)
+        @son_goals = Goal.where(user_id: @selected_son, finished: false).order(points: :desc)
         @son_goals_finished = Goal.where(user_id: @selected_son, finished: true)
       end
     else
-      @son_goals = Goal.where(user_id: @user, finished: false)
+      @son_goals = Goal.where(user_id: @user, finished: false).order(:points).order(points: :desc)
       @son_goals_finished = Goal.where(user_id: @user, finished: true)
     end
   end
