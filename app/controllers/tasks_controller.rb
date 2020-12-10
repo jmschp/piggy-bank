@@ -38,30 +38,37 @@ class TasksController < ApplicationController
 
   def validate
     @task = Task.find(params[:id])
+    user = User.find(@task.user_id)
     if current_user.admin?
       @task.update(finished: true, validated: true)
-      user = User.find(@task.user_id)
       user.update(points: user.points += @task.points)
-      message_body = "A tarefa de #{@task.user.name} foi validada! Ganhou #{@task.points}!!!"
+      message_body = "A tarefa de #{@task.user.name} foi validada 🎉 ! Ganhou #{@task.points} ⭐ !!!"
+      user_phone = user.phone
       @message = Message.create(
         content: message_body,
         chatroom_id: @task.user.family.chatroom.id,
-        user_id: @task.user.family.users.find_by(admin: true).id
+        user_id: user.family.users.find_by(admin: true).id
       )
     else
       @task.update(finished: true)
-      message_body = "#Finalizei a tarefa #{@task.title}! Aguarda a sua validação!!!"
+      message_body = "#Finalizei a tarefa #{@task.title} 🎉! Aguarda a sua validação!!!"
+      user_phone = user.family.users.find_by(admin: true).phone
+
       @message = Message.create(
         content: message_body,
         chatroom_id: @task.user.family.chatroom.id,
-        user_id: @task.user_id
+        user_id: user.user_id
       )
     end
     ChatroomChannel.broadcast_to(
       @task.user.family.chatroom,
-      render_to_string(partial: "messages/message", locals: { message: @message })
+      { message: { user_id: @message.user.id,
+                   name: @message.user.name,
+                   message_id: @message.id,
+                   date: @message.created_at.strftime("%a %b %e at %l:%M%p"),
+                   content: @message.content } }
     )
-    twilio_client(message_body)
+    twilio_client(message_body, user_phone)
     redirect_to tasks_path(user_son: @task.user_id)
   end
 
@@ -78,7 +85,6 @@ class TasksController < ApplicationController
       from: 'whatsapp:+14155238886',
       to: "whatsapp:#{user_phone}"
     )
-
-    puts message.sid
+    return message
   end
 end
