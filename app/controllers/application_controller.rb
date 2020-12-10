@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_user_family, only: %i[index new create], if: :selected_controller?
 
   def default_url_options
-  { host: ENV["DOMAIN"] || "localhost:3000" }
+    { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 
   private
@@ -25,12 +25,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :phone, { family_attributes: [:name] }])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :phone])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name phone])
 
     # For additional in app/views/devise/invitations/new.html.erb
-    devise_parameter_sanitizer.permit(:invite, keys: [:name, :phone, :family_id])
+    devise_parameter_sanitizer.permit(:invite, keys: %i[name phone family_id])
 
     # For additional in app/views/devise/invitations/edit.html.erb
-    devise_parameter_sanitizer.permit(:accept_invitation, keys: [:name, :phone, :family_id])
+    devise_parameter_sanitizer.permit(:accept_invitation, keys: %i[name phone family_id])
   end
 end
