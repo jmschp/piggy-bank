@@ -1,5 +1,7 @@
 import flatpickr from "flatpickr";
 
-flatpickr(".datepicker", {
-  position: 'below right'
-});
+const initFlat = () => {
+  flatpickr(".datepicker", {position: "below right"});
+}
+
+export {initFlat};
