@@ -76,7 +76,7 @@ class TasksController < ApplicationController
     message = @client.messages.create(
       body: message_body,
       from: 'whatsapp:+14155238886',
-      to: 'whatsapp:+5511970433811'
+      to: 'whatsapp:+351919018335'
     )
 
     puts message.sid
