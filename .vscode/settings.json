@@ -9,6 +9,8 @@
         "invitable",
         "omniauthable",
         "timeoutable",
-        "validatable"
+        "twilio",
+        "validatable",
+        "whatsapp"
     ]
 }

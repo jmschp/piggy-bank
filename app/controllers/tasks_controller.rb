@@ -42,15 +42,17 @@ class TasksController < ApplicationController
       @task.update(finished: true, validated: true)
       user = User.find(@task.user_id)
       user.update(points: user.points += @task.points)
+      message_body = "A tarefa de #{@task.user.name} foi validada! Ganhou #{@task.points}!!!"
       @message = Message.create(
-        content: "A tarefa de #{@task.user.name} foi validada! Ganhou #{@task.points}!!!",
+        content: message_body,
         chatroom_id: @task.user.family.chatroom.id,
         user_id: @task.user.family.users.find_by(admin: true).id
       )
     else
       @task.update(finished: true)
+      message_body = "#Finalizei a tarefa #{@task.title}! Aguarda a sua validação!!!"
       @message = Message.create(
-        content: "#Finalizei a tarefa #{@task.title}! Aguarda a sua validação!",
+        content: message_body,
         chatroom_id: @task.user.family.chatroom.id,
         user_id: @task.user_id
       )
@@ -59,6 +61,7 @@ class TasksController < ApplicationController
       @task.user.family.chatroom,
       render_to_string(partial: "messages/message", locals: { message: @message })
     )
+    twilio_client(message_body)
     redirect_to tasks_path(user_son: @task.user_id)
   end
 
@@ -66,5 +69,16 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:title, :deadline, :points, :home)
+  end
+
+  def twilio_client(message_body)
+    @client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
+    message = @client.messages.create(
+      body: message_body,
+      from: 'whatsapp:+14155238886',
+      to: 'whatsapp:+351919018335'
+    )
+
+    puts message.sid
   end
 end
