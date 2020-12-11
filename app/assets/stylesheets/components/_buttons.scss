@@ -34,13 +34,16 @@
 }
 
 .btn-aprove-task {
-    height: 100%;
-    padding: 30px 10px;
-    background-color: $green;
+  height: 100%;
+  background-color: $green;
+  padding: 25px 10px;
+  a {
+    font-size: 0.7rem;
     color: $white;
     text-align: center;
     transition: 1s;
     text-decoration: none;
+  }
   &:hover {
     background-color: $white;
     color: $green;
@@ -70,7 +73,7 @@
 }
 
 .toggle + label::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   cursor: pointer;
@@ -78,16 +81,16 @@
   height: 20px;
   top: 0;
   left: 0;
-  background-color: #CCCCCC;
+  background-color: #cccccc;
   border-radius: 50rem;
 }
 
 .toggle:checked + label::before {
-  background-color: #7A75FC;
+  background-color: #7a75fc;
 }
 
 .toggle + label::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   cursor: pointer;

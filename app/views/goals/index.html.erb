@@ -1,8 +1,7 @@
 <div class="container.fluid index-goals">
   <div class="row">
-    <div class="col-12 col-md-4 mb-4 text-center">
+    <div class="col-12 col-md-4 mb-4">
       <h1>metas de</h1>
-
       <div class="card-family-member">
         <% if @user.admin? %>
           <% @user_family.each do |family_member| %>
@@ -12,18 +11,19 @@
           <%= render("shared/card-family-member", family_member: @user, url_path: goals_path(user_son: @user)) %>
         <% end %>
       </div>
-      <%= link_to("nova meta", new_goal_path, class: "btn-action") if @user.admin? %>
+      <span class="d-flex justify-content-center">
+        <%= link_to("nova meta", new_goal_path, class: "btn-action") if @user.admin? %>
+      </span>
     </div>
-
     <div class="col-12 col-md-8">
       <% if @selected_son.present? || !current_user.admin? %>
-        <h2 class="goal-type-title"> <%= svg_tag('target.svg') %>metas em andamento</h2>
+        <h3 class="goal-type-title"> <%= svg_tag('target.svg') %>metas em andamento</h3>
         <div class="goals">
           <% @son_goals.each do |goal| %>
             <%= render("shared/card-goal", goal: goal, css_class: "mb-3") %>
           <% end %>
         </div>
-        <h2 class="goal-type-title mt-4"> <%= svg_tag('target-arrow.svg') %>metas atingidas</h2>
+        <h3 class="goal-type-title mt-4"> <%= svg_tag('target-arrow.svg') %>metas atingidas</h3>
         <div class="goals">
           <% @son_goals_finished.each do |goal| %>
             <%= render("shared/card-goal", goal: goal, css_class: "mb-3") %>

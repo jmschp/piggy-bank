@@ -37,8 +37,11 @@
   padding: 0px 10px;
   display: flex;
   justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: right;
   svg {
     height: 25px;
-    fill: $yellow;
+    fill: $white;
   }
 }

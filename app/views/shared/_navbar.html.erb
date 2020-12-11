@@ -11,27 +11,27 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto <%= yield(:css_class_navbar_dropdown) %>">
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item text-right active">
           <%= link_to("Início", root_path, class: "nav-link") %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item text-right">
           <%= link_to( current_user.admin? ? "Minha família": "Meu perfil", families_path, class: "nav-link") %>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item text-right dropdown">
         <% if current_user.photo.present? %>
           <%= cl_image_tag(current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
         <% else %>
            <%= image_tag("piggy-green.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
         <% end %>  
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to("Tarefas", tasks_path, class: "dropdown-item") %>
-            <%= link_to("Metas", goals_path, class: "dropdown-item") %>
-            <%= link_to("Punições", punishments_path, class: "dropdown-item") %>
-            <%= link_to("Log out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+            <%= link_to("Tarefas", tasks_path, class: "dropdown-item text-right") %>
+            <%= link_to("Metas", goals_path, class: "dropdown-item text-right") %>
+            <%= link_to("Punições", punishments_path, class: "dropdown-item text-right") %>
+            <%= link_to("Log out", destroy_user_session_path, method: :delete, class: "dropdown-item text-right") %>
           </div>
         </li>
       <% else %>
-        <li class="nav-item">
+        <li class="nav-item text-right">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>

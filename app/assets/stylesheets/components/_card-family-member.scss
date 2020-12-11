@@ -2,7 +2,7 @@
   background-color: $blue;
   width: 100%;
   display: flex;
-  justify-content: space;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -13,5 +13,10 @@
   svg {
     width: 30px;
     fill: $yellow;
+  }
+  p {
+    margin: 0px;
+    font-size: 0.85rem;
+    font-weight: bold;
   }
 }

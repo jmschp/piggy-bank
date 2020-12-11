@@ -2,6 +2,5 @@
   <%= link_to(url_path) do %>
     <%= render("shared/avatar", family_member: family_member) %>
   <% end %>
-  <br>
-  <%= family_member.name %>: <%= family_member.points %> <%= svg_tag("star.svg") %>
+  <p><%= family_member.name %>: <%= family_member.points %> <%= svg_tag("star.svg") %></p>
 </div>
