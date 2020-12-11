@@ -11,8 +11,9 @@
 }
 
 .banner-home-title {
+  margin-bottom: 10px;
   h1 {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
   h3 {
     padding: 0px 20px;
@@ -20,7 +21,8 @@
 }
 
 .banner-home-icons {
-  margin: 30px 0px;
+  justify-self: center;
+  margin: 60px 0px;
   img {
     width: 75px;
     margin: 5px;
@@ -28,7 +30,7 @@
 }
 
 .banner-home-text {
-  margin-top: 40px;
+  margin-top: 60px;
   width: 80%;
   font-size: 15px;
 }

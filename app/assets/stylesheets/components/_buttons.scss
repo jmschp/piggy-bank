@@ -34,12 +34,13 @@
 }
 
 .btn-aprove-task {
-  height: 100%;
-  padding: 30px 15px;
-  background-color: $green;
-  color: $white;
-  text-align: center;
-  transition: 1s;
+    height: 100%;
+    padding: 30px 10px;
+    background-color: $green;
+    color: $white;
+    text-align: center;
+    transition: 1s;
+    text-decoration: none;
   &:hover {
     background-color: $white;
     color: $green;
